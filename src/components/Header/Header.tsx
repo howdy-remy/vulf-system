@@ -139,9 +139,9 @@ export const Header = () => {
 
   // viewport calculations
   const viewportWidth = useViewportWidth();
-  const characterWidth = 9; // approximate width of a character in pixels
+  const characterWidth = 8.85; // approximate width of a character in pixels
   const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - 80) / characterWidth - 1
+    (viewportWidth - 80) / characterWidth - 1 // 80 = padding
   );
 
   const magicNumber = 5; // three hyphens and two spaces

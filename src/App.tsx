@@ -1,18 +1,12 @@
 import "./App.css";
 import { Header } from "./components/Header";
-import { AlbumCard } from "./components/Album";
-
-import { albums } from "./data/albums";
-import { SectionHeader } from "./components/SectionHeader";
+import { Discography } from "./views/discography";
 
 function App() {
   return (
     <>
       <Header />
-      <SectionHeader title="discography" />
-      {albums.map((album) => (
-        <AlbumCard key={album.id} album={album} />
-      ))}
+      <Discography />
     </>
   );
 }

@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 160px);
+  gap: 16px;
+}
+
+.gridOneCol {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.gridTwoCol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .gridTwoCol {
+    grid-template-columns: 1fr;
+  }
+}

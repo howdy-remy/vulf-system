@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  /* gap: 16px; */
+  margin: 0 0 0 40px;
+}
+
+.participationContainer {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 0 40px;
+}
+
+.borderRight {
+  border-right: 1px solid #000;
+}
+
+.metaContainer {
+  flex-shrink: 0;
+  width: calc(160px + 16px + 160px);
+  border-right: 1px solid #000;
+}
+
+.albumContainer {
+  display: flex;
+  gap: 16px;
+
+  padding-left: 16px;
+  margin-right: 40px;
+  overflow-x: auto;
+}
+
+.participation {
+  /* display: flex; */
+  /* gap: 16px; */
+  overflow-x: auto;
+  margin-right: 40px;
+}
+
+.albumRow {
+  padding-left: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.spacer {
+  width: 40px;
+  background-color: #fff;
+}
+@media screen and (max-width: 600px) {
+  /* .container {
+    display: block;
+  } */
+
+  .metaContainer {
+    width: 160px;
+  }
+}
