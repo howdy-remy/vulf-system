@@ -12,6 +12,8 @@
 
 .borderRight {
   border-right: 1px solid #000;
+  padding-right: 16px;
+  width: calc(160px - 16px);
 }
 
 .metaContainer {

@@ -1,10 +1,9 @@
-
 /* Vulf Sans Regular */
 @font-face {
-  font-family: 'Vulf Sans';
+  font-family: "Vulf Sans";
   src: url("../assets/fonts/Vulf_Sans-Regular.woff2") format("woff2"),
-       url("../assets/fonts/Vulf_Sans-Regular.woff") format("woff"),
-       url("../assets/fonts/Vulf_Sans-Regular.ttf") format("truetype");
+    url("../assets/fonts/Vulf_Sans-Regular.woff") format("woff"),
+    url("../assets/fonts/Vulf_Sans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,10 +11,10 @@
 
 /* Vulf Sans Italic */
 @font-face {
-  font-family: 'Vulf Sans';
+  font-family: "Vulf Sans";
   src: url("../assets/fonts/Vulf_Sans-Italic.woff2") format("woff2"),
-       url("../assets/fonts/Vulf_Sans-Italic.woff") format("woff"),
-       url("../assets/fonts/Vulf_Sans-Italic.ttf") format("truetype");
+    url("../assets/fonts/Vulf_Sans-Italic.woff") format("woff"),
+    url("../assets/fonts/Vulf_Sans-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -23,10 +22,10 @@
 
 /* Vulf Sans Bold */
 @font-face {
-  font-family: 'Vulf Sans';
+  font-family: "Vulf Sans";
   src: url("../assets/fonts/Vulf_Sans-Bold.woff2") format("woff2"),
-       url("../assets/fonts/Vulf_Sans-Bold.woff") format("woff"),
-       url("../assets/fonts/Vulf_Sans-Bold.ttf") format("truetype");
+    url("../assets/fonts/Vulf_Sans-Bold.woff") format("woff"),
+    url("../assets/fonts/Vulf_Sans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -34,21 +33,32 @@
 
 /* Vulf Sans Bold Italic */
 @font-face {
-  font-family: 'Vulf Sans';
+  font-family: "Vulf Sans";
   src: url("../assets/fonts/Vulf_Sans-Bold_Italic.woff2") format("woff2"),
-       url("../assets/fonts/Vulf_Sans-Bold_Italic.woff") format("woff"),
-       url("../assets/fonts/Vulf_Sans-Bold_Italic.ttf") format("truetype");
+    url("../assets/fonts/Vulf_Sans-Bold_Italic.woff") format("woff"),
+    url("../assets/fonts/Vulf_Sans-Bold_Italic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 
+/* Vulf Mono Light */
+@font-face {
+  font-family: "Vulf Mono";
+  src: url("../assets/fonts/VulfMono-Light.woff2") format("woff2"),
+    url("../assets/fonts/VulfMono-Light.woff") format("woff"),
+    url("../assets/fonts/VulfMono-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Vulf Mono Regular */
 @font-face {
-  font-family: 'Vulf Mono';
+  font-family: "Vulf Mono";
   src: url("../assets/fonts/VulfMono-Regular.woff2") format("woff2"),
-       url("../assets/fonts/VulfMono-Regular.woff") format("woff"),
-       url("../assets/fonts/VulfMono-Regular.ttf") format("truetype");
+    url("../assets/fonts/VulfMono-Regular.woff") format("woff"),
+    url("../assets/fonts/VulfMono-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -56,10 +66,10 @@
 
 /* Vulf Mono Italic */
 @font-face {
-  font-family: 'Vulf Mono';
+  font-family: "Vulf Mono";
   src: url("../assets/fonts/VulfMono-Italic.woff2") format("woff2"),
-       url("../assets/fonts/VulfMono-Italic.woff") format("woff"),
-       url("../assets/fonts/VulfMono-Italic.ttf") format("truetype");
+    url("../assets/fonts/VulfMono-Italic.woff") format("woff"),
+    url("../assets/fonts/VulfMono-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -67,10 +77,10 @@
 
 /* Vulf Mono Black */
 @font-face {
-  font-family: 'Vulf Mono';
+  font-family: "Vulf Mono";
   src: url("../assets/fonts/VulfMono-Black.woff2") format("woff2"),
-       url("../assets/fonts/VulfMono-Black.woff") format("woff"),
-       url("../assets/fonts/VulfMono-Black.ttf") format("truetype");
+    url("../assets/fonts/VulfMono-Black.woff") format("woff"),
+    url("../assets/fonts/VulfMono-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -78,10 +88,10 @@
 
 /* Vulf Mono Black Italic */
 @font-face {
-  font-family: 'Vulf Mono';
+  font-family: "Vulf Mono";
   src: url("../assets/fonts/VulfMono-BlackItalic.woff2") format("woff2"),
-       url("../assets/fonts/VulfMono-BlackItalic.woff") format("woff"),
-       url("../assets/fonts/VulfMono-BlackItalic.ttf") format("truetype");
+    url("../assets/fonts/VulfMono-BlackItalic.woff") format("woff"),
+    url("../assets/fonts/VulfMono-BlackItalic.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;

@@ -1,5 +1,5 @@
 export interface Album {
-  id: number;
+  id: string;
   title: string;
   artist: string;
   release_date: Date;
@@ -8,91 +8,92 @@ export interface Album {
 
 export const albums: Album[] = [
   {
-    id: 1,
+    id: "mit-peck",
     title: "Mit Peck",
     artist: "Vulfpeck",
-    release_date: new Date("2011-09-23"),
+    release_date: new Date("2011-12-20"),
     cover: "src/assets/albums/vulfpeck_mit-peck.jpg",
   },
   {
-    id: 2,
+    id: "vollmilch",
+    title: "Vollmilch",
+    artist: "Vulfpeck",
+    release_date: new Date("2012-12-20"),
+    cover: "src/assets/albums/vulfpeck_vollmilch.jpg",
+  },
+  {
+    id: "my-first-car",
     title: "My First Car",
     artist: "Vulfpeck",
-    release_date: new Date("2013-01-01"),
+    release_date: new Date("2013-02-27"),
     cover: "src/assets/albums/vulfpeck_my-first-car.jpg",
   },
   {
-    id: 3,
+    id: "sleepify",
     title: "Sleepify",
     artist: "Vulfpeck",
     release_date: new Date("2014-03-14"),
     cover: "src/assets/albums/vulfpeck_sleepify.jpg",
   },
   {
-    id: 4,
+    id: "fugue-state",
     title: "Fugue State",
     artist: "Vulfpeck",
-    release_date: new Date("2014-04-08"),
+    release_date: new Date("2014-08-26"),
     cover: "src/assets/albums/vulfpeck_fugue-state.jpg",
   },
+
   {
-    id: 5,
-    title: "Vollmilch",
-    artist: "Vulfpeck",
-    release_date: new Date("2013-12-17"),
-    cover: "src/assets/albums/vulfpeck_vollmilch.jpg",
-  },
-  {
-    id: 6,
+    id: "thrill-of-the-arts",
     title: "Thrill of the Arts",
     artist: "Vulfpeck",
-    release_date: new Date("2015-11-09"),
+    release_date: new Date("2015-10-09"),
     cover: "src/assets/albums/vulfpeck_thrill-of-the-arts.jpg",
   },
   {
-    id: 7,
+    id: "the-beautiful-game",
     title: "The Beautiful Game",
     artist: "Vulfpeck",
-    release_date: new Date("2016-10-21"),
+    release_date: new Date("2016-10-17"),
     cover: "src/assets/albums/vulfpeck_the-beautiful-game.jpg",
   },
   {
-    id: 8,
+    id: "mr-finish-line",
     title: "Mr. Finish Line",
     artist: "Vulfpeck",
-    release_date: new Date("2017-11-03"),
+    release_date: new Date("2017-11-07"),
     cover: "src/assets/albums/vulfpeck_mr-finish-line.jpg",
   },
   {
-    id: 9,
+    id: "hill-climber",
     title: "Hill Climber",
     artist: "Vulfpeck",
-    release_date: new Date("2018-12-14"),
+    release_date: new Date("2018-12-07"),
     cover: "src/assets/albums/vulfpeck_hill-climber.jpg",
   },
   {
-    id: 10,
+    id: "live-at-msg",
     title: "Live at Madison Square Garden",
     artist: "Vulfpeck",
-    release_date: new Date("2019-12-06"),
+    release_date: new Date("2019-12-10"),
     cover: "src/assets/albums/vulfpeck_live-at-msg.jpg",
   },
   {
-    id: 11,
+    id: "the-joy-of-music",
     title: "The Joy of Music, the Job of Real Estate",
     artist: "Vulfpeck",
-    release_date: new Date("2020-10-16"),
+    release_date: new Date("2020-10-23"),
     cover: "src/assets/albums/vulfpeck_the-joy-of-music.jpg",
   },
   {
-    id: 12,
+    id: "schvitz",
     title: "Schvitz",
     artist: "Vulfpeck",
-    release_date: new Date("2022-12-02"),
+    release_date: new Date("2022-12-30"),
     cover: "src/assets/albums/vulfpeck_schvitz.jpg",
   },
   {
-    id: 13,
+    id: "clarity-of-cal",
     title: "Clarity of Cal",
     artist: "Vulfpeck",
     release_date: new Date("2025-03-04"),

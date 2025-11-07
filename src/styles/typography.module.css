@@ -28,9 +28,17 @@
 .italic {
   font-style: italic;
 }
+.light {
+  font-weight: 200;
+}
 .bold {
   font-weight: 700;
 }
 .black {
   font-weight: 900;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
