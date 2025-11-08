@@ -1,0 +1,84 @@
+.select {
+  position: relative;
+  width: 160px;
+  font-family: "Vulf Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 32px;
+  padding: 8px;
+  border: 1px solid black;
+  background: white;
+
+  font-family: "Vulf Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  z-index: 1000;
+
+  width: calc(160px - 2px);
+  max-height: 256px;
+
+  background: white;
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
+
+  overflow-y: auto;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+
+  width: calc(160px - 16px - 2px);
+  height: 16px;
+  padding: 8px;
+  background: white;
+  border-bottom: 1px dotted black;
+
+  font-family: "Vulf Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+
+  cursor: default;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  width: calc(160px - 16px - 2px);
+  height: 16px;
+  padding: 8px;
+  border-bottom: 1px dotted black;
+  background: white;
+
+  font-family: "Vulf Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+.option.selected {
+  background: #f0f0f0;
+}

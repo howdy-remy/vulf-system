@@ -1,14 +1,38 @@
-import { CharacterLine } from "../../components/CharacterLine";
-import { AlbumCard } from "../../components/Album";
+import { useState } from "react";
 
 import { albums } from "../../data/albums";
 import { people } from "../../data/people";
 import { peopleAlbums } from "../../data/people_albums";
 
+import { AlbumCard } from "../../components/Album";
+import { Select, type SelectItem } from "../../components/Select/Select";
+
 import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
 
 export const Discography = () => {
+  // filtering
+  const [selectedValue, setSelectedValue] = useState("vulfpeck");
+
+  const bands: Record<string, { value: string; label: string }> = {};
+  albums.map((album) => {
+    bands[album.bandId] = { value: album.bandId, label: album.band };
+  });
+
+  const bandOptions = Object.values(bands);
+  const options: SelectItem[] = [
+    {
+      label: "band",
+      isGroup: true,
+      items: bandOptions,
+    },
+  ];
+
+  const filteredAlbums = albums.filter(
+    (album) => selectedValue === album.bandId
+  );
+
+  // build person-album lookup
   const personAlbumLookup: Record<string, Set<string>> = {};
   peopleAlbums.forEach((pa) => {
     if (!personAlbumLookup[pa.personId]) {
@@ -17,7 +41,7 @@ export const Discography = () => {
     personAlbumLookup[pa.personId].add(pa.albumId);
   });
 
-  // Check function
+  // determine if person is in album
   const isPersonInAlbum = (personId: string, albumId: string): boolean => {
     return personAlbumLookup[personId]?.has(albumId) ?? false;
   };
@@ -28,30 +52,44 @@ export const Discography = () => {
       <div className={styles.stickyContainer}>
         <div className={styles.container}>
           <table className={styles.table}>
-            <thead className={styles.stickyHeader}>
+            <thead>
               <tr>
                 <th
                   scope="row"
-                  className={`${styles.th} ${styles.stickyColumn}`}
+                  className={`${styles.th} ${styles.stickyCorner}`}
                 >
                   <h3 className={typography.h3}>Albums</h3>
-                  <p className={typography.body}>sort by</p>
                   <p className={typography.body}>filter by</p>
+                  <Select
+                    options={options}
+                    value={selectedValue}
+                    onChange={setSelectedValue}
+                    placeholder="vulfpeck"
+                  />
                 </th>
-                <td className={`${styles.td} ${styles.stickyColumn2}`} />
-                {albums.map((album) => (
-                  <th className={styles.th} key={album.id}>
+                <td
+                  className={`${styles.td} ${styles.borderRight} ${styles.stickyCornerSecond}`}
+                />
+                {filteredAlbums.map((album) => (
+                  <th
+                    className={`${styles.th} ${styles.stickyHeader}`}
+                    key={album.id}
+                  >
                     <AlbumCard key={album.id} album={album} />
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className={styles.separatorRow}>
                 <td colSpan={albums.length + 2}>
-                  <CharacterLine character="=" />
+                  <p className={typography.body}>
+                    {"=".repeat(((albums.length + 2) * 175) / 8.85)}
+                  </p>
                 </td>
               </tr>
+            </tbody>
+            <tbody>
               <tr>
                 <th
                   scope="row"
@@ -65,16 +103,19 @@ export const Discography = () => {
                     <p>--- select ---</p>
                   </div>
                 </th>
-                <td className={`${styles.td} ${styles.stickyColumn2}`} />
+                <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
               </tr>
               {people.map((person) => (
                 <tr key={person.id} title={person.name}>
                   <th
-                    className={`${typography.body} ${typography.ellipsis} ${styles.stickyColumn}`}
+                    className={`${styles.stickyColumnSecond} ${styles.th} ${styles.borderRight}`}
+                    scope="row"
                   >
-                    {person.name}
+                    <p className={`${typography.body} ${typography.ellipsis}`}>
+                      {person.name}
+                    </p>
                   </th>
-                  {albums.map((album) => {
+                  {filteredAlbums.map((album) => {
                     return isPersonInAlbum(person.id, album.id) ? (
                       <td
                         key={`${person.id}-${album.id}`}

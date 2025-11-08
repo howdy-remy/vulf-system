@@ -1,17 +1,17 @@
 .stickyContainer {
   position: relative;
-}
-
-.container {
-  position: sticky;
-  top: 80px;
+  max-height: calc(100vh - 120px);
   overflow: auto;
 }
 
+.container {
+  position: relative;
+}
+
 .table {
-  border-collapse: collapse;
-  /* table-layout: fixed; */
-  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
 }
 
 .tr {
@@ -20,37 +20,73 @@
 
 .th {
   width: 160px;
+  max-width: 160px;
   text-align: left;
   vertical-align: top;
+  padding: 0 8px;
+  overflow: hidden;
+  font-weight: inherit;
+}
+
+.th:first-child {
+  padding-left: 0;
 }
 
 .td {
   width: 160px;
   text-align: left;
+  padding: 0 8px;
+}
+
+.borderRight {
+  border-right: 1px solid #000;
 }
 
 .stickyHeader {
   position: sticky;
   top: 0;
+  background-color: white;
   z-index: 3;
-  background: white;
 }
 
 .stickyColumn {
   position: sticky;
   left: 0;
-  z-index: 2;
-  background: white;
+  background-color: white;
+  z-index: 3;
 }
 
-.stickyColumn2 {
+.stickyColumnSecond {
   position: sticky;
-  left: 160px;
-  z-index: 2;
-  background: white;
+  left: 168px; /* 160px + 8px padding */
+  background-color: white;
+  z-index: 3;
+  border-right: 1px solid #000;
 }
 
-.stickyHeader .stickyColumn,
-.stickyHeader .stickyColumn2 {
+.stickyCorner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
   z-index: 4;
+}
+
+.stickyCornerSecond {
+  position: sticky;
+  top: 0;
+  left: 168px; /* 160px + 8px padding */
+  background-color: white;
+  z-index: 4;
+}
+
+.separatorRow {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.separatorRow td {
+  background-color: white;
 }
