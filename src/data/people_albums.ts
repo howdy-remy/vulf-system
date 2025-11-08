@@ -152,4 +152,52 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "cory-wong", albumId: "clarity-of-cal" },
   { personId: "jacob-jeffries", albumId: "clarity-of-cal" },
   { personId: "charles-jones", albumId: "clarity-of-cal" },
+
+  // theo_katzman_romance-without-finance
+  { personId: "theo-katzman", albumId: "romance-without-finance" },
+  { personId: "joe-dart", albumId: "romance-without-finance" },
+  { personId: "joey-dosik", albumId: "romance-without-finance" },
+  { personId: "woody-goss", albumId: "romance-without-finance" },
+  { personId: "devin-kerr", albumId: "romance-without-finance" },
+  { personId: "hannah-winkler", albumId: "romance-without-finance" },
+  { personId: "jae-gerhart", albumId: "romance-without-finance" },
+  { personId: "julian-allen", albumId: "romance-without-finance" },
+  { personId: "mike-shea", albumId: "romance-without-finance" },
+  { personId: "tyler-duncan", albumId: "romance-without-finance" },
+
+  // theo_katzman_heartbreak-hits
+  { personId: "theo-katzman", albumId: "heartbreak-hits" },
+  { personId: "laura-mace", albumId: "heartbreak-hits" },
+  { personId: "mike-g", albumId: "heartbreak-hits" },
+  { personId: "88-camino", albumId: "heartbreak-hits" },
+  { personId: "brett-farkas", albumId: "heartbreak-hits" },
+  { personId: "woody-goss", albumId: "heartbreak-hits" },
+  { personId: "lee-pardini", albumId: "heartbreak-hits" },
+
+  // theo_katzman_modern-johnny-sings
+  { personId: "theo-katzman", albumId: "modern-johnny-sings" },
+  { personId: "joe-dart", albumId: "modern-johnny-sings" },
+  { personId: "caleb-hawley", albumId: "modern-johnny-sings" },
+  { personId: "jacob-jeffries", albumId: "modern-johnny-sings" },
+  { personId: "james-cornelison", albumId: "modern-johnny-sings" },
+  { personId: "laura-mace", albumId: "modern-johnny-sings" },
+  { personId: "louis-cato", albumId: "modern-johnny-sings" },
+  { personId: "rett-madison", albumId: "modern-johnny-sings" },
+  { personId: "ryan-lerman", albumId: "modern-johnny-sings" },
+  { personId: "nathaniel-smith", albumId: "modern-johnny-sings" },
+  { personId: "lee-pardini", albumId: "modern-johnny-sings" },
+  { personId: "jordan-rose", albumId: "modern-johnny-sings" },
+  { personId: "josh-pinkham", albumId: "modern-johnny-sings" },
+  { personId: "tyler-duncan", albumId: "modern-johnny-sings" },
+  { personId: "jeremy-kittel", albumId: "modern-johnny-sings" },
+
+  // theo_katzman_be-the-wheel
+  { personId: "theo-katzman", albumId: "be-the-wheel" },
+  { personId: "james-henry-jr", albumId: "be-the-wheel" },
+  { personId: "charlotte-greve", albumId: "be-the-wheel" },
+  { personId: "seth-bernard", albumId: "be-the-wheel" },
+  { personId: "stuart-bogiel", albumId: "be-the-wheel" },
+  { personId: "joe-dart", albumId: "be-the-wheel" },
+  { personId: "jordan-rose", albumId: "be-the-wheel" },
+  { personId: "dave-mackay", albumId: "be-the-wheel" },
 ];

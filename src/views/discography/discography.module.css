@@ -80,6 +80,12 @@
   z-index: 4;
 }
 
+.separatorBody {
+  position: sticky;
+  top: 244px;
+  z-index: 10;
+}
+
 .separatorRow {
   background-color: white;
   position: sticky;
@@ -89,4 +95,9 @@
 
 .separatorRow td {
   background-color: white;
+}
+
+.stickyTextHeader {
+  position: sticky;
+  top: 0;
 }

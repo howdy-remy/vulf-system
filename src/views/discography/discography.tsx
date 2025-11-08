@@ -21,14 +21,23 @@ export const Discography = () => {
   const [selectedValue, setSelectedValue] = useState("vulfpeck");
   const bandOptions = Object.values(bands);
   const options: SelectItem[] = [
+    { value: "all", label: "all" },
     {
       label: "band",
       isGroup: true,
       items: bandOptions,
     },
   ];
-  const filteredAlbums = albums.filter(
-    (album) => selectedValue === album.bandId
+  const filteredAlbums = albums.filter((album) => {
+    if (selectedValue === "all") {
+      return true;
+    }
+    return selectedValue === album.bandId;
+  });
+
+  // sort albums ---------------------------------------------------------------
+  const sortedAlbums = filteredAlbums.sort(
+    (a, b) => a.release_date.getTime() - b.release_date.getTime()
   );
 
   // is person in album --------------------------------------------------------
@@ -68,7 +77,7 @@ export const Discography = () => {
                 <td
                   className={`${styles.td} ${styles.borderRight} ${styles.stickyCornerSecond}`}
                 />
-                {filteredAlbums.map((album) => (
+                {sortedAlbums.map((album) => (
                   <th
                     className={`${styles.th} ${styles.stickyHeader}`}
                     key={album.id}
@@ -78,11 +87,11 @@ export const Discography = () => {
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.separatorBody}>
               <tr className={styles.separatorRow}>
                 <td colSpan={albums.length + 2}>
                   <p className={typography.body}>
-                    {"=".repeat(((albums.length + 2) * 175) / 8.85)}
+                    {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
                   </p>
                 </td>
               </tr>
@@ -94,11 +103,18 @@ export const Discography = () => {
                   className={`${styles.th} ${styles.stickyColumn}`}
                   rowSpan={people.length + 1}
                 >
-                  <h3 className={typography.h3}>Person</h3>
+                  <h3 className={`${typography.h3} ${styles.stickyTextHeader}`}>
+                    Person
+                  </h3>
 
                   <div>
                     <p className={typography.body}>order</p>
-                    <p>--- select ---</p>
+                    <Select
+                      options={options}
+                      value={selectedValue}
+                      onChange={setSelectedValue}
+                      placeholder="vulfpeck"
+                    />
                   </div>
                 </th>
                 <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
@@ -113,18 +129,18 @@ export const Discography = () => {
                       {person.name}
                     </p>
                   </th>
-                  {filteredAlbums.map((album) => {
+                  {sortedAlbums.map((album) => {
                     return isPersonInAlbum(person.id, album.id) ? (
                       <td
                         key={`${person.id}-${album.id}`}
-                        className={`${typography.body} ${typography.black}`}
+                        className={`${styles.td} ${typography.body} ${typography.black}`}
                       >
                         ××××××××××××××××××
                       </td>
                     ) : (
                       <td
                         key={`${person.id}-${album.id}`}
-                        className={`${typography.body} ${typography.light}`}
+                        className={`${styles.td} ${typography.body} ${typography.light}`}
                       >
                         ------------------
                       </td>
