@@ -1,16 +1,12 @@
-import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
-
-import { albums } from "../../data/albums";
-
-import { SectionHeader } from "../../components/SectionHeader";
 import { CharacterLine } from "../../components/CharacterLine";
 import { AlbumCard } from "../../components/Album";
 
-import typography from "../../styles/typography.module.css";
-import grid from "../../styles/grid.module.css";
-import styles from "./discography.module.css";
+import { albums } from "../../data/albums";
 import { people } from "../../data/people";
 import { peopleAlbums } from "../../data/people_albums";
+
+import typography from "../../styles/typography.module.css";
+import styles from "./discography.module.css";
 
 export const Discography = () => {
   const personAlbumLookup: Record<string, Set<string>> = {};
@@ -28,78 +24,79 @@ export const Discography = () => {
 
   return (
     <>
-      <ScrollSync horizontal>
-        <div className={styles.stickyContainer}>
-          <SectionHeader title="discography" />
-          <div className={`${styles.container} ${styles.stickyHeader}`}>
-            <div className={grid.gridOneCol}>
-              <h3 className={typography.h3}>Albums</h3>
-              <p className={typography.body}>sort by</p>
-              <p className={typography.body}>filter by</p>
-            </div>
-            <div className={`${styles.borderRight} ${grid.gridOneCol}`} />
-            <ScrollSyncPane>
-              <div className={styles.albumContainer}>
-                {albums.map((album) => (
-                  <AlbumCard key={album.id} album={album} />
-                ))}
-              </div>
-            </ScrollSyncPane>
-          </div>
-          <CharacterLine character="=" />
-          <div className={styles.container}>
-            <div className={grid.gridOneCol}>
-              <h3 className={typography.h3}>Person</h3>
-
-              <div className={styles.gridOneCol}>
-                <p className={typography.body}>order</p>
-                <p>--- select ---</p>
-              </div>
-            </div>
-
-            <div className={`${grid.gridOneCol} ${styles.borderRight}`}>
-              {people.map((person) => (
-                <p
-                  key={person.id}
-                  className={`${typography.body} ${typography.ellipsis}`}
-                  title={person.name}
+      <h2 className={typography.h2}>discography</h2>
+      <div className={styles.stickyContainer}>
+        <div className={styles.container}>
+          <table className={styles.table}>
+            <thead className={styles.stickyHeader}>
+              <tr>
+                <th
+                  scope="row"
+                  className={`${styles.th} ${styles.stickyColumn}`}
                 >
-                  {person.name}
-                </p>
-              ))}
-            </div>
-            <ScrollSyncPane>
-              <div className={styles.participation}>
-                {people.map((person) => (
-                  <div key={`person__${person.id}`} className={styles.albumRow}>
-                    {albums.map((album) => (
-                      <div
-                        key={`${person.id}-${album.id}`}
-                        className={grid.gridOneCol}
-                      >
-                        {isPersonInAlbum(person.id, album.id) ? (
-                          <p
-                            className={`${typography.body} ${typography.black}`}
-                          >
-                            ××××××××××××××××××
-                          </p>
-                        ) : (
-                          <p
-                            className={`${typography.body} ${typography.light}`}
-                          >
-                            ------------------
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <h3 className={typography.h3}>Albums</h3>
+                  <p className={typography.body}>sort by</p>
+                  <p className={typography.body}>filter by</p>
+                </th>
+                <td className={`${styles.td} ${styles.stickyColumn2}`} />
+                {albums.map((album) => (
+                  <th className={styles.th} key={album.id}>
+                    <AlbumCard key={album.id} album={album} />
+                  </th>
                 ))}
-              </div>
-            </ScrollSyncPane>
-          </div>
-          <CharacterLine character="=" />
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={albums.length + 2}>
+                  <CharacterLine character="=" />
+                </td>
+              </tr>
+              <tr>
+                <th
+                  scope="row"
+                  className={`${styles.th} ${styles.stickyColumn}`}
+                  rowSpan={people.length + 1}
+                >
+                  <h3 className={typography.h3}>Person</h3>
+
+                  <div>
+                    <p className={typography.body}>order</p>
+                    <p>--- select ---</p>
+                  </div>
+                </th>
+                <td className={`${styles.td} ${styles.stickyColumn2}`} />
+              </tr>
+              {people.map((person) => (
+                <tr key={person.id} title={person.name}>
+                  <th
+                    className={`${typography.body} ${typography.ellipsis} ${styles.stickyColumn}`}
+                  >
+                    {person.name}
+                  </th>
+                  {albums.map((album) => {
+                    return isPersonInAlbum(person.id, album.id) ? (
+                      <td
+                        key={`${person.id}-${album.id}`}
+                        className={`${typography.body} ${typography.black}`}
+                      >
+                        ××××××××××××××××××
+                      </td>
+                    ) : (
+                      <td
+                        key={`${person.id}-${album.id}`}
+                        className={`${typography.body} ${typography.light}`}
+                      >
+                        ------------------
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </ScrollSync>
+      </div>
     </>
   );
 };

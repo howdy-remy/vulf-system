@@ -1,69 +1,56 @@
-.container {
-  display: flex;
-  margin: 0 0 0 40px;
-}
-
 .stickyContainer {
   position: relative;
 }
 
-.stickyHeader {
+.container {
   position: sticky;
   top: 80px;
-  background-color: #fff;
+  overflow: auto;
 }
 
-.participationContainer {
-  display: flex;
-  gap: 16px;
-  margin: 0 0 0 40px;
-}
-
-.borderRight {
-  border-right: 1px solid #000;
-  padding-right: 16px;
-  width: calc(160px - 16px);
-}
-
-.metaContainer {
-  flex-shrink: 0;
-  width: calc(160px + 16px + 160px);
-  border-right: 1px solid #000;
-}
-
-.albumContainer {
-  display: flex;
-  gap: 16px;
-
-  padding-left: 16px;
-  margin-right: 40px;
+.table {
+  border-collapse: collapse;
+  /* table-layout: fixed; */
   overflow-x: auto;
 }
 
-.participation {
-  /* display: flex; */
-  /* gap: 16px; */
-  overflow-x: auto;
-  margin-right: 40px;
+.tr {
+  width: 100%;
 }
 
-.albumRow {
-  padding-left: 16px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
+.th {
+  width: 160px;
+  text-align: left;
+  vertical-align: top;
 }
 
-.spacer {
-  width: 40px;
-  background-color: #fff;
+.td {
+  width: 160px;
+  text-align: left;
 }
-@media screen and (max-width: 600px) {
-  /* .container {
-    display: block;
-  } */
 
-  .metaContainer {
-    width: 160px;
-  }
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: white;
+}
+
+.stickyColumn {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: white;
+}
+
+.stickyColumn2 {
+  position: sticky;
+  left: 160px;
+  z-index: 2;
+  background: white;
+}
+
+.stickyHeader .stickyColumn,
+.stickyHeader .stickyColumn2 {
+  z-index: 4;
 }

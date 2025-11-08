@@ -1,9 +1,0 @@
-.container {
-  padding: 8px 40px;
-}
-
-.sticky {
-  position: sticky;
-  background-color: #fff;
-  z-index: 1;
-}

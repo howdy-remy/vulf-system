@@ -1,30 +1,17 @@
-import { useViewportWidth } from "../../hooks/useViewportWidth";
+import { useTextWidth } from "../../hooks/useTextWidth";
 
-import styles from "./CharacterLine.module.css";
 import typography from "../../styles/typography.module.css";
 
-export const CharacterLine = ({
-  character = "-",
-  stickyAt,
-}: {
+type CharacterLineProps = {
   character?: string;
-  stickyAt?: string;
-}) => {
-  // viewport calculations
-  const viewportWidth = useViewportWidth();
-  const characterWidth = 8.85; // approximate width of a character in pixels
-  const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - 80) / characterWidth - 1 // 80 = padding
-  );
+};
+
+export const CharacterLine = ({ character = "-" }: CharacterLineProps) => {
+  const { viewportWidthInCharacters } = useTextWidth();
 
   return (
-    <div
-      className={`${styles.container} ${stickyAt ? styles.sticky : ""}`}
-      style={stickyAt ? { top: stickyAt } : {}}
-    >
-      <p className={typography.body}>
-        {character.repeat(viewportWidthInCharacters)}
-      </p>
-    </div>
+    <p className={typography.body}>
+      {character.repeat(viewportWidthInCharacters)}
+    </p>
   );
 };
