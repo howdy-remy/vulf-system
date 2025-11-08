@@ -11,14 +11,14 @@ import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
 
 export const Discography = () => {
-  // filtering
-  const [selectedValue, setSelectedValue] = useState("vulfpeck");
-
+  // bands
   const bands: Record<string, { value: string; label: string }> = {};
   albums.map((album) => {
     bands[album.bandId] = { value: album.bandId, label: album.band };
   });
 
+  // filter albums -------------------------------------------------------------
+  const [selectedValue, setSelectedValue] = useState("vulfpeck");
   const bandOptions = Object.values(bands);
   const options: SelectItem[] = [
     {
@@ -27,12 +27,11 @@ export const Discography = () => {
       items: bandOptions,
     },
   ];
-
   const filteredAlbums = albums.filter(
     (album) => selectedValue === album.bandId
   );
 
-  // build person-album lookup
+  // is person in album --------------------------------------------------------
   const personAlbumLookup: Record<string, Set<string>> = {};
   peopleAlbums.forEach((pa) => {
     if (!personAlbumLookup[pa.personId]) {
@@ -41,7 +40,6 @@ export const Discography = () => {
     personAlbumLookup[pa.personId].add(pa.albumId);
   });
 
-  // determine if person is in album
   const isPersonInAlbum = (personId: string, albumId: string): boolean => {
     return personAlbumLookup[personId]?.has(albumId) ?? false;
   };

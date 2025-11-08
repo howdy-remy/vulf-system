@@ -16,7 +16,7 @@ export const AlbumCard: React.FC<{ album: Album }> = ({ album }) => {
       <h4 className={`${typography.body} ${typography.italic}`}>
         {album.title}
       </h4>
-      <p className={typography.body}>{album.artist}</p>
+      <p className={typography.body}>{album.band}</p>
       <p className={typography.body}>{formattedDate}</p>
     </div>
   );
