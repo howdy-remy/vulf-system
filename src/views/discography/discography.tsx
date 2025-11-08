@@ -29,9 +29,9 @@ export const Discography = () => {
   return (
     <>
       <ScrollSync horizontal>
-        <>
+        <div className={styles.stickyContainer}>
           <SectionHeader title="discography" />
-          <div className={styles.container}>
+          <div className={`${styles.container} ${styles.stickyHeader}`}>
             <div className={grid.gridOneCol}>
               <h3 className={typography.h3}>Albums</h3>
               <p className={typography.body}>sort by</p>
@@ -97,9 +97,9 @@ export const Discography = () => {
               </div>
             </ScrollSyncPane>
           </div>
-        </>
+          <CharacterLine character="=" />
+        </div>
       </ScrollSync>
-      <CharacterLine character="=" />
     </>
   );
 };

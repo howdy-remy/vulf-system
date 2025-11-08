@@ -1,7 +1,16 @@
 .container {
   display: flex;
-  /* gap: 16px; */
   margin: 0 0 0 40px;
+}
+
+.stickyContainer {
+  position: relative;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 80px;
+  background-color: #fff;
 }
 
 .participationContainer {

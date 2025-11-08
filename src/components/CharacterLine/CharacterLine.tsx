@@ -3,7 +3,13 @@ import { useViewportWidth } from "../../hooks/useViewportWidth";
 import styles from "./CharacterLine.module.css";
 import typography from "../../styles/typography.module.css";
 
-export const CharacterLine = ({ character = "-" }: { character?: string }) => {
+export const CharacterLine = ({
+  character = "-",
+  stickyAt,
+}: {
+  character?: string;
+  stickyAt?: string;
+}) => {
   // viewport calculations
   const viewportWidth = useViewportWidth();
   const characterWidth = 8.85; // approximate width of a character in pixels
@@ -12,7 +18,10 @@ export const CharacterLine = ({ character = "-" }: { character?: string }) => {
   );
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${stickyAt ? styles.sticky : ""}`}
+      style={stickyAt ? { top: stickyAt } : {}}
+    >
       <p className={typography.body}>
         {character.repeat(viewportWidthInCharacters)}
       </p>
