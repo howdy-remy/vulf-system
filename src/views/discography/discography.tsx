@@ -18,7 +18,7 @@ export const Discography = () => {
   });
 
   // filter albums -------------------------------------------------------------
-  const [selectedValue, setSelectedValue] = useState("vulfpeck");
+  const [selectedValue, setSelectedValue] = useState<string>("vulfpeck");
   const bandOptions = Object.values(bands);
   const options: SelectItem[] = [
     { value: "all", label: "all" },
@@ -39,6 +39,58 @@ export const Discography = () => {
   const sortedAlbums = filteredAlbums.sort(
     (a, b) => a.release_date.getTime() - b.release_date.getTime()
   );
+
+  // filteredPeopleAlbums -------------------------------------------------------
+  const filteredPeopleAlbums = peopleAlbums.filter((pa) =>
+    sortedAlbums.find((album) => album.id === pa.albumId)
+  );
+
+  // filter people -------------------------------------------------------------
+  // (only people who are in the filtered albums)
+  const filteredPeople = people.filter((person) =>
+    filteredPeopleAlbums.find((pa) => pa.personId === person.id)
+  );
+
+  // sort people ---------------------------------------------------------------
+  const [sortPeopleBy, setSortPeopleBy] = useState<string>("introduced");
+  const sortPeopleOptions: SelectItem[] = [
+    { value: "introduced", label: "as introduced" },
+    { value: "frequency", label: "by frequency" },
+    { value: "lastName", label: "by last name" },
+  ];
+
+  const sortedPeople = filteredPeople.slice().sort((a, b) => {
+    if (sortPeopleBy === "lastName") {
+      const aLastName = a.name.split(" ").slice(-1)[0];
+      const bLastName = b.name.split(" ").slice(-1)[0];
+      return aLastName.localeCompare(bLastName);
+    } else if (sortPeopleBy === "frequency") {
+      const aCount = filteredPeopleAlbums.filter(
+        (pa) => pa.personId === a.id
+      ).length;
+      const bCount = filteredPeopleAlbums.filter(
+        (pa) => pa.personId === b.id
+      ).length;
+      return bCount - aCount; // descending
+    } else {
+      // introduced
+      const aFirstAlbum = filteredPeopleAlbums
+        .filter((pa) => pa.personId === a.id)
+        .map((pa) => {
+          const album = albums.find((al) => al.id === pa.albumId);
+          return album ? album.release_date.getTime() : Infinity;
+        })
+        .sort((x, y) => x - y)[0];
+      const bFirstAlbum = filteredPeopleAlbums
+        .filter((pa) => pa.personId === b.id)
+        .map((pa) => {
+          const album = albums.find((al) => al.id === pa.albumId);
+          return album ? album.release_date.getTime() : Infinity;
+        })
+        .sort((x, y) => x - y)[0];
+      return aFirstAlbum - bFirstAlbum;
+    }
+  });
 
   // is person in album --------------------------------------------------------
   const personAlbumLookup: Record<string, Set<string>> = {};
@@ -103,23 +155,21 @@ export const Discography = () => {
                   className={`${styles.th} ${styles.stickyColumn}`}
                   rowSpan={people.length + 1}
                 >
-                  <h3 className={`${typography.h3} ${styles.stickyTextHeader}`}>
-                    Person
-                  </h3>
+                  <h3 className={typography.h3}>Person</h3>
 
                   <div>
                     <p className={typography.body}>order</p>
                     <Select
-                      options={options}
-                      value={selectedValue}
-                      onChange={setSelectedValue}
-                      placeholder="vulfpeck"
+                      options={sortPeopleOptions}
+                      value={sortPeopleBy}
+                      onChange={setSortPeopleBy}
+                      placeholder="introduced"
                     />
                   </div>
                 </th>
                 <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
               </tr>
-              {people.map((person) => (
+              {sortedPeople.map((person) => (
                 <tr key={person.id} title={person.name}>
                   <th
                     className={`${styles.stickyColumnSecond} ${styles.th} ${styles.borderRight}`}

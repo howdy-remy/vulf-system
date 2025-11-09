@@ -289,12 +289,6 @@ export const people: Person[] = [
     firstName: "Julian",
     lastName: "Allen",
   },
-  {
-    id: "laura-mace",
-    name: "Laura Mace",
-    firstName: "Laura",
-    lastName: "Mace",
-  },
   { id: "mike-g", name: "Mike G", firstName: "Mike", lastName: "G" },
   { id: "88-camino", name: "88 Camino", firstName: "", lastName: "88 Camino" },
   {

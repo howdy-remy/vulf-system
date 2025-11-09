@@ -7,5 +7,5 @@
 }
 
 .header a {
-  color: #ce2029;
+  color: var(--color-red);
 }
