@@ -381,4 +381,40 @@ export const people: Person[] = [
     firstName: "Dave",
     lastName: "Mackay",
   },
+  {
+    id: "mark-lettieri",
+    name: "Mark Lettieri",
+    firstName: "Mark",
+    lastName: "Lettieri",
+  },
+  {
+    id: "sandra-couch",
+    name: "Sandra Couch",
+    firstName: "Sandra",
+    lastName: "Couch",
+  },
+  {
+    id: "elizabeth-lea",
+    name: "Elizabeth Lea",
+    firstName: "Elizabeth",
+    lastName: "Lea",
+  },
+  {
+    id: "alekos-syropoulos",
+    name: "Alekos Syropoulos",
+    firstName: "Alekos",
+    lastName: "Syropoulos",
+  },
+  {
+    id: "grace-kelly",
+    name: "Grace Kelly",
+    firstName: "Grace",
+    lastName: "Kelly",
+  },
+  {
+    id: "kenni-holmen",
+    name: "Kenni Holmen",
+    firstName: "Kenni",
+    lastName: "Holmen",
+  },
 ];

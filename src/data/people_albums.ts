@@ -200,4 +200,42 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "joe-dart", albumId: "be-the-wheel" },
   { personId: "jordan-rose", albumId: "be-the-wheel" },
   { personId: "dave-mackay", albumId: "be-the-wheel" },
+
+  // the-fearless-flyers_the-fearless-flyers
+  { personId: "cory-wong", albumId: "the-fearless-flyers" },
+  { personId: "mark-lettieri", albumId: "the-fearless-flyers" },
+  { personId: "joe-dart", albumId: "the-fearless-flyers" },
+  { personId: "nate-smith", albumId: "the-fearless-flyers" },
+  { personId: "blake-mills", albumId: "the-fearless-flyers" },
+  { personId: "sandra-crouch", albumId: "the-fearless-flyers" },
+  { personId: "elizabeth-lea", albumId: "the-fearless-flyers" },
+
+  // the-fearless-flyers_fearless-flyers-ii
+  { personId: "cory-wong", albumId: "fearless-flyers-ii" },
+  { personId: "mark-lettieri", albumId: "fearless-flyers-ii" },
+  { personId: "joe-dart", albumId: "fearless-flyers-ii" },
+  { personId: "nate-smith", albumId: "fearless-flyers-ii" },
+  { personId: "chris-thile", albumId: "fearless-flyers-ii" },
+  { personId: "joey-dosik", albumId: "fearless-flyers-ii" },
+
+  // the-fearless-flyers_tailwinds
+  { personId: "cory-wong", albumId: "tailwinds" },
+  { personId: "mark-lettieri", albumId: "tailwinds" },
+  { personId: "joe-dart", albumId: "tailwinds" },
+  { personId: "nate-smith", albumId: "tailwinds" },
+  { personId: "alekos-syropoulos", albumId: "tailwinds" },
+  { personId: "grace-kelly", albumId: "tailwinds" },
+  { personId: "kenni-holmen", albumId: "tailwinds" },
+
+  // the-fearless-flyers_fearless-flyers-iii
+  { personId: "cory-wong", albumId: "fearless-flyers-iii" },
+  { personId: "mark-lettieri", albumId: "fearless-flyers-iii" },
+  { personId: "joe-dart", albumId: "fearless-flyers-iii" },
+  { personId: "nate-smith", albumId: "fearless-flyers-iii" },
+
+  // the-fearless-flyers_fearless-flyers-iv
+  { personId: "cory-wong", albumId: "fearless-flyers-iv" },
+  { personId: "mark-lettieri", albumId: "fearless-flyers-iv" },
+  { personId: "joe-dart", albumId: "fearless-flyers-iv" },
+  { personId: "nate-smith", albumId: "fearless-flyers-iv" },
 ];

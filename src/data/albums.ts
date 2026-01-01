@@ -48,7 +48,6 @@ export const albums: Album[] = [
     release_date: new Date("2014-08-26"),
     cover: "src/assets/albums/vulfpeck_fugue-state.jpg",
   },
-
   {
     id: "thrill-of-the-arts",
     title: "Thrill of the Arts",
@@ -113,6 +112,7 @@ export const albums: Album[] = [
     release_date: new Date("2025-03-04"),
     cover: "src/assets/albums/vulfpeck_clarity-of-cal.jpg",
   },
+  // Theo Katzman
   {
     title: "Romance Without Finance",
     id: "romance-without-finance",
@@ -144,5 +144,46 @@ export const albums: Album[] = [
     bandId: "theo-katzman",
     release_date: new Date("2023-03-10"),
     cover: "src/assets/albums/theo-katzman_be-the-wheel.jpg",
+  },
+  // The Fearless Flyers
+  {
+    title: "The Fearless Flyers",
+    id: "the-fearless-flyers",
+    band: "The Fearless Flyers",
+    bandId: "the-fearless-flyers",
+    release_date: new Date("2018-03-23"),
+    cover: "src/assets/albums/the-fearless-flyers_the-fearless-flyers.jpg",
+  },
+  {
+    title: "Fearless Flyers II",
+    id: "fearless-flyers-ii",
+    band: "The Fearless Flyers",
+    bandId: "the-fearless-flyers",
+    release_date: new Date("2019-05-03"),
+    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-ii.jpg",
+  },
+  {
+    title: "Tailwinds",
+    id: "tailwinds",
+    band: "The Fearless Flyers",
+    bandId: "the-fearless-flyers",
+    release_date: new Date("2020-06-19"),
+    cover: "src/assets/albums/the-fearless-flyers_tailwinds.jpg",
+  },
+  {
+    title: "Fearless Flyers III",
+    id: "fearless-flyers-iii",
+    band: "The Fearless Flyers",
+    bandId: "the-fearless-flyers",
+    release_date: new Date("2022-03-04"),
+    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-iii.jpg",
+  },
+  {
+    title: "Fearless Flyers IV",
+    id: "fearless-flyers-iv",
+    band: "The Fearless Flyers",
+    bandId: "the-fearless-flyers",
+    release_date: new Date("2024-02-09"),
+    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-iv.jpg",
   },
 ];
