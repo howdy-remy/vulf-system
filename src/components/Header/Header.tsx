@@ -6,7 +6,7 @@ import typography from "../../styles/typography.module.css";
 import styles from "./Header.module.css";
 
 // -----------------------------------------------------------------------------
-// so the general concept of the header is that it is entirely made of text
+// the general concept of the header is that it is entirely made of text
 // characters, with hyphens used to create lines. it should adapt to the
 // viewport width and scroll position, getting smaller while scrolled in
 // desktop, or including the full header to show all content on mobile.

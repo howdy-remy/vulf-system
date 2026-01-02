@@ -1,4 +1,5 @@
 import { Header } from "./components/Header";
+import { Intro } from "./views/intro";
 import { Discography } from "./views/discography";
 import styles from "./App.module.css";
 import { useTextWidth } from "./hooks/useTextWidth";
@@ -20,6 +21,7 @@ function App() {
           }}
         >
           <Header />
+          <Intro />
           <Discography />
         </div>
       </div>

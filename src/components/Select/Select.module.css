@@ -31,11 +31,12 @@
   z-index: 1000;
 
   width: calc(160px - 2px);
-  max-height: 256px;
+  max-height: 147px;
 
   background: white;
   border-left: 1px dotted black;
   border-right: 1px dotted black;
+  border-bottom: 1px dotted black;
 
   overflow-y: auto;
 }
@@ -73,6 +74,10 @@
   font-weight: 500;
 
   cursor: pointer;
+}
+
+.option:last-child {
+  border-bottom: 0;
 }
 
 .option:hover {

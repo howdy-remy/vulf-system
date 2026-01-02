@@ -186,4 +186,37 @@ export const albums: Album[] = [
     release_date: new Date("2024-02-09"),
     cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-iv.jpg",
   },
+  // vulfmon
+  {
+    title: "Here We Go Jack",
+    id: "here-we-go-jack",
+    band: "Vulfmon",
+    bandId: "vulfmon",
+    release_date: new Date("2022-08-11"),
+    cover: "src/assets/albums/vulfmon_here-we-go-jack.jpg",
+  },
+  {
+    title: "Vulfnik",
+    id: "vulfnik",
+    band: "Vulfmon",
+    bandId: "vulfmon",
+    release_date: new Date("2023-06-01"),
+    cover: "src/assets/albums/vulfmon_vulfnik.jpg",
+  },
+  {
+    title: "Dot",
+    id: "dot",
+    band: "Vulfmon",
+    bandId: "vulfmon",
+    release_date: new Date("2024-07-23"),
+    cover: "src/assets/albums/vulfmon_dot.jpg",
+  },
+  {
+    title: "Deg",
+    id: "deg",
+    band: "Vulfmon",
+    bandId: "vulfmon",
+    release_date: new Date("2025-10-20"),
+    cover: "src/assets/albums/vulfmon_deg.jpg",
+  },
 ];

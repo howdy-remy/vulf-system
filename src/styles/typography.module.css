@@ -11,18 +11,26 @@
   font-size: 40px;
   font-weight: 900;
   line-height: 40px;
+  margin: 16px 0;
 }
 .h3 {
   font-family: "Vulf Sans", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
-  margin: 0;
+  margin: 0 0 16px 0;
 }
 .body {
   font-family: "Vulf Mono", monospace;
   font-size: 12px;
   line-height: 16px;
+  margin: 0;
+  text-align: left;
+}
+.bodyLarge {
+  font-family: "Vulf Mono", monospace;
+  font-size: 24px;
+  line-height: 24px;
   margin: 0;
   text-align: left;
 }
