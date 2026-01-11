@@ -107,103 +107,82 @@ export const Discography = () => {
 
   return (
     <>
-      <h2 className={`${typography.h2} ${styles.stickySectionHeader}`}>
-        discography
-      </h2>
-      <div className={styles.stickyContainer}>
-        <div className={styles.container}>
-          <table className={styles.table}>
-            <thead className={styles.thead}>
-              <tr>
-                <th
-                  scope="row"
-                  className={`${styles.th} ${styles.stickyCorner}`}
-                >
-                  <h3 className={typography.h3}>Albums</h3>
-                  <p className={typography.body}>filter by</p>
-                  <Select
-                    options={options}
-                    value={selectedValue}
-                    onChange={setSelectedValue}
-                    placeholder="vulfpeck"
-                  />
-                </th>
-                <td
-                  className={`${styles.td} ${styles.borderRight} ${styles.stickyCornerSecond}`}
-                />
-                {sortedAlbums.map((album) => (
-                  <th
-                    className={`${styles.th} ${styles.stickyHeader}`}
-                    key={album.id}
-                  >
-                    <AlbumCard key={album.id} album={album} />
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className={styles.separatorBody}>
-              <tr className={styles.separatorRow}>
-                <td colSpan={albums.length + 2}>
-                  <p className={typography.body}>
-                    {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th
-                  scope="row"
-                  className={`${styles.th} ${styles.stickyColumn}`}
-                  rowSpan={people.length + 1}
-                >
-                  <h3 className={typography.h3}>Person</h3>
+      <h2 className={typography.h2}>discography</h2>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th scope="row" className={styles.th}>
+              <h3 className={typography.h3}>Albums</h3>
+              <p className={typography.body}>filter by</p>
+              <Select
+                options={options}
+                value={selectedValue}
+                onChange={setSelectedValue}
+                placeholder="vulfpeck"
+              />
+            </th>
+            <td className={`${styles.td} ${styles.borderRight}`} />
+            {sortedAlbums.map((album) => (
+              <th className={styles.th} key={album.id}>
+                <AlbumCard key={album.id} album={album} />
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colSpan={albums.length + 2}>
+              <p className={typography.body}>
+                {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
+              </p>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th scope="row" className={styles.th} rowSpan={people.length + 1}>
+              <h3 className={typography.h3}>Person</h3>
 
-                  <div>
-                    <p className={typography.body}>order</p>
-                    <Select
-                      options={sortPeopleOptions}
-                      value={sortPeopleBy}
-                      onChange={setSortPeopleBy}
-                      placeholder="introduced"
-                    />
-                  </div>
-                </th>
-                <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
-              </tr>
-              {sortedPeople.map((person) => (
-                <tr key={person.id} title={person.name}>
-                  <th
-                    className={`${styles.stickyColumnSecond} ${styles.th} ${styles.borderRight}`}
-                    scope="row"
+              <div>
+                <p className={typography.body}>order</p>
+                <Select
+                  options={sortPeopleOptions}
+                  value={sortPeopleBy}
+                  onChange={setSortPeopleBy}
+                  placeholder="introduced"
+                />
+              </div>
+            </th>
+            <td className={`${styles.td} ${styles.columnSecond}`} />
+          </tr>
+          {sortedPeople.map((person) => (
+            <tr key={person.id} title={person.name}>
+              <th className={`${styles.th} ${styles.borderRight}`} scope="row">
+                <p className={`${typography.body} ${typography.ellipsis}`}>
+                  {person.name}
+                </p>
+              </th>
+              {sortedAlbums.map((album) => {
+                return isPersonInAlbum(person.id, album.id) ? (
+                  <td
+                    key={`${person.id}-${album.id}`}
+                    className={`${styles.td} ${typography.body} ${typography.black}`}
                   >
-                    <p className={`${typography.body} ${typography.ellipsis}`}>
-                      {person.name}
-                    </p>
-                  </th>
-                  {sortedAlbums.map((album) => {
-                    return isPersonInAlbum(person.id, album.id) ? (
-                      <td
-                        key={`${person.id}-${album.id}`}
-                        className={`${styles.td} ${typography.body} ${typography.black}`}
-                      >
-                        ××××××××××××××××××
-                      </td>
-                    ) : (
-                      <td
-                        key={`${person.id}-${album.id}`}
-                        className={`${styles.td} ${typography.body} ${typography.light}`}
-                      >
-                        ------------------
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+                    ××××××××××××××××××
+                  </td>
+                ) : (
+                  <td
+                    key={`${person.id}-${album.id}`}
+                    className={`${styles.td} ${typography.body} ${typography.light}`}
+                  >
+                    ------------------
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
