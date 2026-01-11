@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { albums } from "../../data/albums";
 import { people } from "../../data/people";
@@ -11,6 +11,29 @@ import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
 
 export const Discography = () => {
+  // Scroll state to control internal table scrolling
+  const [allowInternalScroll, setAllowInternalScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if user has scrolled to the bottom of the page
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      // Allow internal scrolling when user is at or near the bottom (within 10px)
+      const isAtBottom = scrollTop + windowHeight >= documentHeight - 10;
+      setAllowInternalScroll(isAtBottom);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Check initial state
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // bands
   const bands: Record<string, { value: string; label: string }> = {};
   albums.map((album) => {
@@ -108,81 +131,90 @@ export const Discography = () => {
   return (
     <>
       <h2 className={typography.h2}>discography</h2>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th scope="row" className={styles.th}>
-              <h3 className={typography.h3}>Albums</h3>
-              <p className={typography.body}>filter by</p>
-              <Select
-                options={options}
-                value={selectedValue}
-                onChange={setSelectedValue}
-                placeholder="vulfpeck"
-              />
-            </th>
-            <td className={`${styles.td} ${styles.borderRight}`} />
-            {sortedAlbums.map((album) => (
-              <th className={styles.th} key={album.id}>
-                <AlbumCard key={album.id} album={album} />
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colSpan={albums.length + 2}>
-              <p className={typography.body}>
-                {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <th scope="row" className={styles.th} rowSpan={people.length + 1}>
-              <h3 className={typography.h3}>Person</h3>
-
-              <div>
-                <p className={typography.body}>order</p>
+      <div
+        className={`${styles.container} ${
+          allowInternalScroll ? styles.allowScroll : ""
+        }`}
+      >
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th scope="row" className={styles.th}>
+                <h3 className={typography.h3}>Albums</h3>
+                <p className={typography.body}>filter by</p>
                 <Select
-                  options={sortPeopleOptions}
-                  value={sortPeopleBy}
-                  onChange={setSortPeopleBy}
-                  placeholder="introduced"
+                  options={options}
+                  value={selectedValue}
+                  onChange={setSelectedValue}
+                  placeholder="vulfpeck"
                 />
-              </div>
-            </th>
-            <td className={`${styles.td} ${styles.columnSecond}`} />
-          </tr>
-          {sortedPeople.map((person) => (
-            <tr key={person.id} title={person.name}>
-              <th className={`${styles.th} ${styles.borderRight}`} scope="row">
-                <p className={`${typography.body} ${typography.ellipsis}`}>
-                  {person.name}
-                </p>
               </th>
-              {sortedAlbums.map((album) => {
-                return isPersonInAlbum(person.id, album.id) ? (
-                  <td
-                    key={`${person.id}-${album.id}`}
-                    className={`${styles.td} ${typography.body} ${typography.black}`}
-                  >
-                    ××××××××××××××××××
-                  </td>
-                ) : (
-                  <td
-                    key={`${person.id}-${album.id}`}
-                    className={`${styles.td} ${typography.body} ${typography.light}`}
-                  >
-                    ------------------
-                  </td>
-                );
-              })}
+              <td className={`${styles.td} ${styles.borderRight}`} />
+              {sortedAlbums.map((album) => (
+                <th className={styles.th} key={album.id}>
+                  <AlbumCard key={album.id} album={album} />
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan={albums.length + 2}>
+                <p className={typography.body}>
+                  {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row" className={styles.th} rowSpan={people.length + 1}>
+                <h3 className={typography.h3}>Person</h3>
+
+                <div>
+                  <p className={typography.body}>order</p>
+                  <Select
+                    options={sortPeopleOptions}
+                    value={sortPeopleBy}
+                    onChange={setSortPeopleBy}
+                    placeholder="introduced"
+                  />
+                </div>
+              </th>
+              <td className={`${styles.td} ${styles.columnSecond}`} />
+            </tr>
+            {sortedPeople.map((person) => (
+              <tr key={person.id} title={person.name}>
+                <th
+                  className={`${styles.th} ${styles.borderRight}`}
+                  scope="row"
+                >
+                  <p className={`${typography.body} ${typography.ellipsis}`}>
+                    {person.name}
+                  </p>
+                </th>
+                {sortedAlbums.map((album) => {
+                  return isPersonInAlbum(person.id, album.id) ? (
+                    <td
+                      key={`${person.id}-${album.id}`}
+                      className={`${styles.td} ${typography.body} ${typography.black}`}
+                    >
+                      ××××××××××××××××××
+                    </td>
+                  ) : (
+                    <td
+                      key={`${person.id}-${album.id}`}
+                      className={`${styles.td} ${typography.body} ${typography.light}`}
+                    >
+                      ------------------
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

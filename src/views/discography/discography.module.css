@@ -1,3 +1,15 @@
+.container {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden; /* Initially hidden until user scrolls to bottom */
+  height: calc(100vh - 160px);
+  transition: overflow-y 0.3s ease;
+}
+
+.container.allowScroll {
+  overflow-y: auto;
+}
+
 .table {
   border-collapse: separate;
   border-spacing: 0;
