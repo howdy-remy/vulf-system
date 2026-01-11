@@ -18,7 +18,7 @@ export const Discography = () => {
   });
 
   // filter albums -------------------------------------------------------------
-  const [selectedValue, setSelectedValue] = useState<string>("vulfpeck");
+  const [selectedValue, setSelectedValue] = useState<string>("all");
   const bandOptions = Object.values(bands);
   const options: SelectItem[] = [
     { value: "all", label: "all" },
@@ -107,11 +107,13 @@ export const Discography = () => {
 
   return (
     <>
-      <h2 className={typography.h2}>discography</h2>
+      <h2 className={`${typography.h2} ${styles.stickySectionHeader}`}>
+        discography
+      </h2>
       <div className={styles.stickyContainer}>
         <div className={styles.container}>
           <table className={styles.table}>
-            <thead>
+            <thead className={styles.thead}>
               <tr>
                 <th
                   scope="row"
