@@ -56,7 +56,9 @@ export const Select = ({
   return (
     <div ref={selectRef} className={styles.select}>
       <button onClick={() => setIsOpen(!isOpen)} className={styles.button}>
-        <span>{selectedOption ? selectedOption.label : placeholder}</span>
+        <span className={styles.truncate}>
+          {selectedOption ? selectedOption.label : placeholder}
+        </span>
         <span>↓</span>
       </button>
 

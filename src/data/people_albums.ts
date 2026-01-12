@@ -291,7 +291,7 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "benny-bock", albumId: "deg" },
   { personId: "woody-goss", albumId: "deg" },
 
-  // woody-and-jeremy__strange-satisfaction
+  // woody-and-jeremy_strange-satisfaction
   { personId: "woody-goss", albumId: "strange-satisfaction" },
   { personId: "andrew-vogt", albumId: "strange-satisfaction" },
   { personId: "joe-dart", albumId: "strange-satisfaction" },
@@ -313,7 +313,7 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "monica-martin", albumId: "strange-satisfaction" },
   { personId: "rene-squeaky-robinson", albumId: "strange-satisfaction" },
 
-  // woody-and-jeremy__gravy-in-my-coffee
+  // woody-and-jeremy_gravy-in-my-coffee
   { personId: "woody-goss", albumId: "gravy-in-my-coffee" },
   { personId: "jeremy-daly", albumId: "gravy-in-my-coffee" },
   { personId: "ben-joseph", albumId: "gravy-in-my-coffee" },
@@ -322,6 +322,14 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "reuben-garza", albumId: "gravy-in-my-coffee" },
   { personId: "joe-dart", albumId: "gravy-in-my-coffee" },
   { personId: "andrew-vogt", albumId: "gravy-in-my-coffee" },
+
+  // may-erlewine-and-the-woody-goss-band_anyway
+  { personId: "woody-goss", albumId: "anyway" },
+  { personId: "may-erlewine", albumId: "anyway" },
+  { personId: "ben-joseph", albumId: "anyway" },
+  { personId: "packy-lundholm", albumId: "anyway" },
+  { personId: "andrew-vogt", albumId: "anyway" },
+  { personId: "chuck-bontrager", albumId: "anyway" },
 
   // woody-goss_rainbow-beach
   { personId: "woody-goss", albumId: "rainbow-beach" },
