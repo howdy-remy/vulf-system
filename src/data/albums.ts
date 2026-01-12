@@ -219,4 +219,47 @@ export const albums: Album[] = [
     release_date: new Date("2025-10-20"),
     cover: "src/assets/albums/vulfmon_deg.jpg",
   },
+  // Woody and Jeremy
+  {
+    title: "Strange Satisfaction",
+    id: "strange-satisfaction",
+    band: "Woody and Jeremy",
+    bandId: "woody-and-jeremy",
+    release_date: new Date("2020-03-13"),
+    cover: "src/assets/albums/woody-and-jeremy_strange-satisfaction.jpg",
+  },
+  {
+    title: "Gravy in My Coffee",
+    id: "gravy-in-my-coffee",
+    band: "Woody and Jeremy",
+    bandId: "woody-and-jeremy",
+    release_date: new Date("2021-06-04"),
+    cover: "src/assets/albums/woody-and-jeremy_gravy-in-my-coffee.jpg",
+  },
+  {
+    title: "Anyway",
+    id: "anyway",
+    band: "May Erlewine & the Woody Goss Band",
+    bandId: "may-erlewine-woody-goss",
+    release_date: new Date("2020-09-14"),
+    cover: "src/assets/albums/may-erlewine-woody-goss_anyway.jpg",
+  },
+
+  // Woody Goss
+  {
+    title: "Rainbow Beach",
+    id: "rainbow-beach",
+    band: "Woody Goss",
+    bandId: "woody-goss",
+    release_date: new Date("2021-09-24"),
+    cover: "src/assets/albums/woody-goss_rainbow-beach.jpg",
+  },
+  {
+    title: "High Loon!",
+    id: "high-loon",
+    band: "Woody Goss",
+    bandId: "woody-goss",
+    release_date: new Date("2023-04-28"),
+    cover: "src/assets/albums/woody-goss_high-loon.jpg",
+  },
 ];

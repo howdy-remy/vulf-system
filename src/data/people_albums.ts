@@ -290,4 +290,50 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "tyler-ballgame", albumId: "deg" },
   { personId: "benny-bock", albumId: "deg" },
   { personId: "woody-goss", albumId: "deg" },
+
+  // woody-and-jeremy__strange-satisfaction
+  { personId: "woody-goss", albumId: "strange-satisfaction" },
+  { personId: "andrew-vogt", albumId: "strange-satisfaction" },
+  { personId: "joe-dart", albumId: "strange-satisfaction" },
+  { personId: "packy-lundholm", albumId: "strange-satisfaction" },
+  { personId: "mat-roberts", albumId: "strange-satisfaction" },
+  { personId: "matthew-roberts", albumId: "strange-satisfaction" },
+  { personId: "theo-katzman", albumId: "strange-satisfaction" },
+  { personId: "james-perkins", albumId: "strange-satisfaction" },
+  { personId: "ben-joseph", albumId: "strange-satisfaction" },
+  { personId: "cory-wong", albumId: "strange-satisfaction" },
+  { personId: "noam-wallenberg", albumId: "strange-satisfaction" },
+  { personId: "ryan-zoidis", albumId: "strange-satisfaction" },
+  { personId: "eric-benny-bloom", albumId: "strange-satisfaction" },
+  { personId: "philip-perkins", albumId: "strange-satisfaction" },
+  { personId: "jennifer-hall", albumId: "strange-satisfaction" },
+  { personId: "jeremy-daly", albumId: "strange-satisfaction" },
+  { personId: "laura-mace", albumId: "strange-satisfaction" },
+  { personId: "mike-green", albumId: "strange-satisfaction" },
+  { personId: "monica-martin", albumId: "strange-satisfaction" },
+  { personId: "rene-squeaky-robinson", albumId: "strange-satisfaction" },
+
+  // woody-and-jeremy__gravy-in-my-coffee
+  { personId: "woody-goss", albumId: "gravy-in-my-coffee" },
+  { personId: "jeremy-daly", albumId: "gravy-in-my-coffee" },
+  { personId: "ben-joseph", albumId: "gravy-in-my-coffee" },
+  { personId: "noam-wallenberg", albumId: "gravy-in-my-coffee" },
+  { personId: "packy-lundholm", albumId: "gravy-in-my-coffee" },
+  { personId: "reuben-garza", albumId: "gravy-in-my-coffee" },
+  { personId: "joe-dart", albumId: "gravy-in-my-coffee" },
+  { personId: "andrew-vogt", albumId: "gravy-in-my-coffee" },
+
+  // woody-goss_rainbow-beach
+  { personId: "woody-goss", albumId: "rainbow-beach" },
+  { personId: "andrew-vogt", albumId: "rainbow-beach" },
+  { personId: "mat-roberts", albumId: "rainbow-beach" },
+  { personId: "anders-nordstrom", albumId: "rainbow-beach" },
+  { personId: "packy-lundholm", albumId: "rainbow-beach" },
+
+  // woody-goss_high-loon
+  { personId: "woody-goss", albumId: "high-loon" },
+  { personId: "andrew-vogt", albumId: "high-loon" },
+  { personId: "packy-lundholm", albumId: "high-loon" },
+  { personId: "james-perkins", albumId: "high-loon" },
+  { personId: "reuben-garza", albumId: "high-loon" },
 ];

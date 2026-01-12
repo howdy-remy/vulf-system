@@ -9,6 +9,7 @@ import { Select, type SelectItem } from "../../components/Select/Select";
 
 import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
+import { useTextWidth } from "../../hooks/useTextWidth";
 
 export const Discography = () => {
   // scroll handling -----------------------------------------------------------
@@ -128,6 +129,13 @@ export const Discography = () => {
     return personAlbumLookup[personId]?.has(albumId) ?? false;
   };
 
+  // = border length -----------------------------------------------------------
+  const { viewportWidthInCharacters } = useTextWidth();
+  const borderLength = Math.max(
+    ((sortedAlbums.length + 2) * 175) / 8.85,
+    viewportWidthInCharacters
+  );
+
   return (
     <>
       <h2 className={typography.h2}>discography</h2>
@@ -165,9 +173,7 @@ export const Discography = () => {
           <tbody className={styles.stickyBorder}>
             <tr>
               <td colSpan={albums.length + 2}>
-                <p className={typography.body}>
-                  {"=".repeat(((sortedAlbums.length + 2) * 175) / 8.85)}
-                </p>
+                <p className={typography.body}>{"=".repeat(borderLength)}</p>
               </td>
             </tr>
           </tbody>
