@@ -3,7 +3,6 @@
   overflow-x: auto;
   overflow-y: hidden; /* Initially hidden until user scrolls to bottom */
   height: calc(100vh - 160px);
-  transition: overflow-y 0.3s ease;
 }
 
 .container.allowScroll {
@@ -52,4 +51,55 @@ tr:not(:first-child):hover td {
 
 .columnSecond {
   border-right: 1px solid #000;
+}
+
+/* Sticky header row */
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 3;
+}
+
+.stickyBorder {
+  position: sticky;
+  top: 244px;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+}
+
+/* Sticky first column */
+.stickyColumn {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+/* Sticky corner (first column + header row intersection) */
+.stickyCorner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 4;
+}
+
+/* Second column sticky (for the spacer column) */
+.stickyColumnSecond {
+  position: sticky;
+  left: 168px; /* 160px width + 8px padding */
+  background-color: white;
+  z-index: 2;
+  padding: 0 8px;
+}
+
+/* Corner for second column */
+.stickyCornerSecond {
+  position: sticky;
+  top: 0;
+  left: 168px;
+  background-color: white;
+  z-index: 4;
 }

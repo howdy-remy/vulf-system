@@ -11,18 +11,18 @@ import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
 
 export const Discography = () => {
-  // Scroll state to control internal table scrolling
+  // scroll handling -----------------------------------------------------------
   const [allowInternalScroll, setAllowInternalScroll] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if user has scrolled to the bottom of the page
+      // check if user has scrolled to the bottom of the page
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
 
-      // Allow internal scrolling when user is at or near the bottom (within 10px)
+      // allow internal scrolling when user is at or near the bottom (within 10px)
       const isAtBottom = scrollTop + windowHeight >= documentHeight - 10;
       setAllowInternalScroll(isAtBottom);
     };
@@ -34,6 +34,7 @@ export const Discography = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // data ----------------------------------------------------------------------
   // bands
   const bands: Record<string, { value: string; label: string }> = {};
   albums.map((album) => {
@@ -63,19 +64,18 @@ export const Discography = () => {
     (a, b) => a.release_date.getTime() - b.release_date.getTime()
   );
 
-  // filteredPeopleAlbums -------------------------------------------------------
+  // filter people -------------------------------------------------------------
+  // (only people who are in the filtered albums)
   const filteredPeopleAlbums = peopleAlbums.filter((pa) =>
     sortedAlbums.find((album) => album.id === pa.albumId)
   );
 
-  // filter people -------------------------------------------------------------
-  // (only people who are in the filtered albums)
   const filteredPeople = people.filter((person) =>
     filteredPeopleAlbums.find((pa) => pa.personId === person.id)
   );
 
   // sort people ---------------------------------------------------------------
-  const [sortPeopleBy, setSortPeopleBy] = useState<string>("introduced");
+  const [sortPeopleBy, setSortPeopleBy] = useState<string>("frequency");
   const sortPeopleOptions: SelectItem[] = [
     { value: "introduced", label: "as introduced" },
     { value: "frequency", label: "by frequency" },
@@ -139,7 +139,7 @@ export const Discography = () => {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th scope="row" className={styles.th}>
+              <th scope="row" className={`${styles.th} ${styles.stickyCorner}`}>
                 <h3 className={typography.h3}>Albums</h3>
                 <p className={typography.body}>filter by</p>
                 <Select
@@ -149,15 +149,20 @@ export const Discography = () => {
                   placeholder="vulfpeck"
                 />
               </th>
-              <td className={`${styles.td} ${styles.borderRight}`} />
+              <td
+                className={`${styles.td} ${styles.borderRight} ${styles.stickyCornerSecond}`}
+              />
               {sortedAlbums.map((album) => (
-                <th className={styles.th} key={album.id}>
+                <th
+                  className={`${styles.th} ${styles.stickyHeader}`}
+                  key={album.id}
+                >
                   <AlbumCard key={album.id} album={album} />
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.stickyBorder}>
             <tr>
               <td colSpan={albums.length + 2}>
                 <p className={typography.body}>
@@ -168,7 +173,11 @@ export const Discography = () => {
           </tbody>
           <tbody>
             <tr>
-              <th scope="row" className={styles.th} rowSpan={people.length + 1}>
+              <th
+                scope="row"
+                rowSpan={people.length + 1}
+                className={`${styles.th} ${styles.stickyColumn}`}
+              >
                 <h3 className={typography.h3}>Person</h3>
 
                 <div>
@@ -181,12 +190,12 @@ export const Discography = () => {
                   />
                 </div>
               </th>
-              <td className={`${styles.td} ${styles.columnSecond}`} />
+              <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
             </tr>
             {sortedPeople.map((person) => (
               <tr key={person.id} title={person.name}>
                 <th
-                  className={`${styles.th} ${styles.borderRight}`}
+                  className={`${styles.th} ${styles.borderRight} ${styles.stickyColumnSecond}`}
                   scope="row"
                 >
                   <p className={`${typography.body} ${typography.ellipsis}`}>
