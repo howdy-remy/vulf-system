@@ -1,4 +1,4 @@
-import styles from "./Intro.module.css";
+import styles from "./intro.module.css";
 import typography from "../../styles/typography.module.css";
 import { albums } from "../../data/albums";
 import { people } from "../../data/people";
