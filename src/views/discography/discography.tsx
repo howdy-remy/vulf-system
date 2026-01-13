@@ -130,11 +130,15 @@ export const Discography = () => {
   };
 
   // = border length -----------------------------------------------------------
-  const { viewportWidthInCharacters } = useTextWidth();
+  const { viewportWidthInCharacters, viewportWidth } = useTextWidth();
   const borderLength = Math.max(
     ((sortedAlbums.length + 2) * 175) / 8.85,
     viewportWidthInCharacters
   );
+
+  // mobile responsiveness -----------------------------------------------------
+  const smallScreenBreakpoint = 565; // px
+  const isSmallScreen = viewportWidth < smallScreenBreakpoint;
 
   return (
     <>
@@ -144,21 +148,55 @@ export const Discography = () => {
           allowInternalScroll ? styles.allowScroll : ""
         }`}
       >
+        {isSmallScreen && (
+          <div className={styles.smallScreenFilters}>
+            <div className={styles.th}>
+              <h3 className={typography.h3}>Albums</h3>
+              <p className={typography.body}>filter by</p>
+              <Select
+                options={options}
+                value={selectedValue}
+                onChange={setSelectedValue}
+                placeholder="vulfpeck"
+              />
+            </div>
+            <div className={styles.th}>
+              <h3 className={typography.h3}>Person</h3>
+
+              <div>
+                <p className={typography.body}>order</p>
+                <Select
+                  options={sortPeopleOptions}
+                  value={sortPeopleBy}
+                  onChange={setSortPeopleBy}
+                  placeholder="introduced"
+                />
+              </div>
+            </div>
+          </div>
+        )}
         <table className={styles.table}>
           <thead>
             <tr>
-              <th scope="row" className={`${styles.th} ${styles.stickyCorner}`}>
-                <h3 className={typography.h3}>Albums</h3>
-                <p className={typography.body}>filter by</p>
-                <Select
-                  options={options}
-                  value={selectedValue}
-                  onChange={setSelectedValue}
-                  placeholder="vulfpeck"
-                />
-              </th>
+              {!isSmallScreen && (
+                <th
+                  scope="row"
+                  className={`${styles.th} ${styles.stickyCorner}`}
+                >
+                  <h3 className={typography.h3}>Albums</h3>
+                  <p className={typography.body}>filter by</p>
+                  <Select
+                    options={options}
+                    value={selectedValue}
+                    onChange={setSelectedValue}
+                    placeholder="vulfpeck"
+                  />
+                </th>
+              )}
               <td
-                className={`${styles.td} ${styles.borderRight} ${styles.stickyCornerSecond}`}
+                className={`${styles.td} ${styles.borderRight} ${
+                  styles.stickyCornerSecond
+                } ${isSmallScreen ? styles.smallScreen : ""}`}
               />
               {sortedAlbums.map((album) => (
                 <th
@@ -179,29 +217,33 @@ export const Discography = () => {
           </tbody>
           <tbody>
             <tr>
-              <th
-                scope="row"
-                rowSpan={people.length + 1}
-                className={`${styles.th} ${styles.stickyColumn}`}
-              >
-                <h3 className={typography.h3}>Person</h3>
+              {!isSmallScreen && (
+                <th
+                  scope="row"
+                  rowSpan={people.length + 1}
+                  className={`${styles.th} ${styles.stickyColumn}`}
+                >
+                  <h3 className={typography.h3}>Person</h3>
 
-                <div>
-                  <p className={typography.body}>order</p>
-                  <Select
-                    options={sortPeopleOptions}
-                    value={sortPeopleBy}
-                    onChange={setSortPeopleBy}
-                    placeholder="introduced"
-                  />
-                </div>
-              </th>
-              <td className={`${styles.td} ${styles.stickyColumnSecond}`} />
+                  <div>
+                    <p className={typography.body}>order</p>
+                    <Select
+                      options={sortPeopleOptions}
+                      value={sortPeopleBy}
+                      onChange={setSortPeopleBy}
+                      placeholder="introduced"
+                    />
+                  </div>
+                </th>
+              )}
+              {/* <td className={`${styles.td} ${styles.stickyColumnSecond} `} /> */}
             </tr>
             {sortedPeople.map((person) => (
               <tr key={person.id} title={person.name}>
                 <th
-                  className={`${styles.th} ${styles.borderRight} ${styles.stickyColumnSecond}`}
+                  className={`${styles.th} ${styles.borderRight} ${
+                    styles.stickyColumnSecond
+                  } ${isSmallScreen ? styles.smallScreen : ""}`}
                   scope="row"
                 >
                   <p className={`${typography.body} ${typography.ellipsis}`}>

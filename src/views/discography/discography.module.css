@@ -9,6 +9,14 @@
   overflow-y: auto;
 }
 
+.smallScreenFilters {
+  position: sticky;
+  left: 0;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
 .table {
   border-collapse: separate;
   border-spacing: 0;
@@ -96,6 +104,10 @@ tr:not(:first-child):hover td {
   padding: 0 8px;
 }
 
+.stickyColumnSecond.smallScreen {
+  left: 0;
+}
+
 /* Corner for second column */
 .stickyCornerSecond {
   position: sticky;
@@ -103,4 +115,7 @@ tr:not(:first-child):hover td {
   left: 168px;
   background-color: white;
   z-index: 4;
+}
+.stickyCornerSecond.smallScreen {
+  left: 0;
 }
