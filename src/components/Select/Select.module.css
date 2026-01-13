@@ -1,6 +1,6 @@
 .select {
   position: relative;
-  width: 160px;
+  width: 100%;
   font-family: "Vulf Mono", monospace;
   font-size: 12px;
   font-weight: 500;
@@ -52,7 +52,7 @@
   align-items: center;
 
   width: calc(160px - 16px - 2px);
-  height: 16px;
+  height: 32px;
   padding: 8px;
   background: white;
   border-bottom: 1px dotted black;
@@ -70,7 +70,7 @@
   align-items: center;
 
   width: calc(160px - 16px - 2px);
-  min-height: 16px;
+  min-height: 32px;
   padding: 8px;
   border-bottom: 1px dotted black;
   background: white;

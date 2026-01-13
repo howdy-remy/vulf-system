@@ -130,73 +130,60 @@ export const Discography = () => {
   };
 
   // = border length -----------------------------------------------------------
-  const { viewportWidthInCharacters, viewportWidth } = useTextWidth();
+  const { viewportWidthInCharacters } = useTextWidth();
   const borderLength = Math.max(
     ((sortedAlbums.length + 2) * 175) / 8.85,
     viewportWidthInCharacters
   );
 
-  // mobile responsiveness -----------------------------------------------------
-  const smallScreenBreakpoint = 565; // px
-  const isSmallScreen = viewportWidth < smallScreenBreakpoint;
-
   return (
     <>
       <h2 className={typography.h2}>discography</h2>
+      <div className={styles.filters}>
+        <div className={styles.filterItem}>
+          <h3 className={typography.h3}>Albums</h3>
+          <p className={typography.body}>filter by</p>
+          <Select
+            options={options}
+            value={selectedValue}
+            onChange={setSelectedValue}
+            placeholder="vulfpeck"
+          />
+        </div>
+        <div className={styles.filterItem}>
+          <h3 className={typography.h3}>Person</h3>
+          <p className={typography.body}>order</p>
+          <Select
+            options={sortPeopleOptions}
+            value={sortPeopleBy}
+            onChange={setSortPeopleBy}
+            placeholder="introduced"
+          />
+        </div>
+      </div>
       <div
         className={`${styles.container} ${
           allowInternalScroll ? styles.allowScroll : ""
         }`}
       >
-        {isSmallScreen && (
-          <div className={styles.smallScreenFilters}>
-            <div className={styles.th}>
-              <h3 className={typography.h3}>Albums</h3>
-              <p className={typography.body}>filter by</p>
-              <Select
-                options={options}
-                value={selectedValue}
-                onChange={setSelectedValue}
-                placeholder="vulfpeck"
-              />
-            </div>
-            <div className={styles.th}>
-              <h3 className={typography.h3}>Person</h3>
-
-              <div>
-                <p className={typography.body}>order</p>
-                <Select
-                  options={sortPeopleOptions}
-                  value={sortPeopleBy}
-                  onChange={setSortPeopleBy}
-                  placeholder="introduced"
-                />
-              </div>
-            </div>
-          </div>
-        )}
         <table className={styles.table}>
           <thead>
             <tr>
-              {!isSmallScreen && (
-                <th
-                  scope="row"
-                  className={`${styles.th} ${styles.stickyCorner}`}
-                >
-                  <h3 className={typography.h3}>Albums</h3>
-                  <p className={typography.body}>filter by</p>
-                  <Select
-                    options={options}
-                    value={selectedValue}
-                    onChange={setSelectedValue}
-                    placeholder="vulfpeck"
-                  />
-                </th>
-              )}
+              <th
+                scope="row"
+                className={`${styles.th} ${styles.rowOneCellOne}`}
+              >
+                <h3 className={typography.h3}>Albums</h3>
+                <p className={typography.body}>filter by</p>
+                <Select
+                  options={options}
+                  value={selectedValue}
+                  onChange={setSelectedValue}
+                  placeholder="vulfpeck"
+                />
+              </th>
               <td
-                className={`${styles.td} ${styles.borderRight} ${
-                  styles.stickyCornerSecond
-                } ${isSmallScreen ? styles.smallScreen : ""}`}
+                className={`${styles.td} ${styles.borderRight} ${styles.rowOneCellTwo}`}
               />
               {sortedAlbums.map((album) => (
                 <th
@@ -217,32 +204,28 @@ export const Discography = () => {
           </tbody>
           <tbody>
             <tr>
-              {!isSmallScreen && (
-                <th
-                  scope="row"
-                  rowSpan={people.length + 1}
-                  className={`${styles.th} ${styles.stickyColumn}`}
-                >
-                  <h3 className={typography.h3}>Person</h3>
+              <th
+                scope="row"
+                rowSpan={people.length + 1}
+                className={`${styles.th} ${styles.rowTwoCellOne}`}
+              >
+                <h3 className={typography.h3}>Person</h3>
 
-                  <div>
-                    <p className={typography.body}>order</p>
-                    <Select
-                      options={sortPeopleOptions}
-                      value={sortPeopleBy}
-                      onChange={setSortPeopleBy}
-                      placeholder="introduced"
-                    />
-                  </div>
-                </th>
-              )}
+                <div>
+                  <p className={typography.body}>order</p>
+                  <Select
+                    options={sortPeopleOptions}
+                    value={sortPeopleBy}
+                    onChange={setSortPeopleBy}
+                    placeholder="introduced"
+                  />
+                </div>
+              </th>
             </tr>
             {sortedPeople.map((person) => (
               <tr key={person.id} title={person.name}>
                 <th
-                  className={`${styles.th} ${styles.borderRight} ${
-                    styles.stickyColumnSecond
-                  } ${isSmallScreen ? styles.smallScreen : ""}`}
+                  className={`${styles.th} ${styles.borderRight} ${styles.rowTwoCellTwo}`}
                   scope="row"
                 >
                   <p className={`${typography.body} ${typography.ellipsis}`}>

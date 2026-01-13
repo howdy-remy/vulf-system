@@ -9,12 +9,23 @@
   overflow-y: auto;
 }
 
-.smallScreenFilters {
+.filters {
   position: sticky;
   left: 0;
-  display: flex;
+  display: none;
   gap: 8px;
   margin-bottom: 16px;
+}
+
+.filterItem {
+  width: calc(50vw - 16px);
+  max-width: 160px;
+}
+
+@media screen and (max-width: 565px) {
+  .filters {
+    display: flex;
+  }
 }
 
 .table {
@@ -78,16 +89,7 @@ tr:not(:first-child):hover td {
   background-color: white;
 }
 
-/* Sticky first column */
-.stickyColumn {
-  position: sticky;
-  left: 0;
-  background-color: white;
-  z-index: 2;
-}
-
-/* Sticky corner (first column + header row intersection) */
-.stickyCorner {
+.rowOneCellOne {
   position: sticky;
   top: 0;
   left: 0;
@@ -95,8 +97,22 @@ tr:not(:first-child):hover td {
   z-index: 4;
 }
 
-/* Second column sticky (for the spacer column) */
-.stickyColumnSecond {
+.rowOneCellTwo {
+  position: sticky;
+  top: 0;
+  left: 168px;
+  background-color: white;
+  z-index: 4;
+}
+
+.rowTwoCellOne {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.rowTwoCellTwo {
   position: sticky;
   left: 168px; /* 160px width + 8px padding */
   background-color: white;
@@ -104,18 +120,21 @@ tr:not(:first-child):hover td {
   padding: 0 8px;
 }
 
-.stickyColumnSecond.smallScreen {
-  left: 0;
-}
-
-/* Corner for second column */
-.stickyCornerSecond {
-  position: sticky;
-  top: 0;
-  left: 168px;
-  background-color: white;
-  z-index: 4;
-}
-.stickyCornerSecond.smallScreen {
-  left: 0;
+@media screen and (max-width: 565px) {
+  .rowOneCellOne {
+    display: none;
+  }
+  .rowOneCellTwo {
+    left: 0;
+    width: calc(50vw - 40px);
+    max-width: calc(160px - 17px);
+  }
+  .rowTwoCellOne {
+    display: none;
+  }
+  .rowTwoCellTwo {
+    left: 0;
+    width: calc(50vw - 40px);
+    max-width: calc(160px - 17px);
+  }
 }
