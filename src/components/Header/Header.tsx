@@ -30,7 +30,7 @@ const MicroHeader = ({
   viewportWidthInCharacters: number;
 }) => (
   <header className={styles.header}>
-    {[...Array(6)].map((_, i) => (
+    {[...Array(3)].map((_, i) => (
       <p key={i} className={typography.body}>
         {"-".repeat(viewportWidthInCharacters)}
       </p>
