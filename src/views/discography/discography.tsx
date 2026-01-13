@@ -236,7 +236,6 @@ export const Discography = () => {
                   </div>
                 </th>
               )}
-              {/* <td className={`${styles.td} ${styles.stickyColumnSecond} `} /> */}
             </tr>
             {sortedPeople.map((person) => (
               <tr key={person.id} title={person.name}>
