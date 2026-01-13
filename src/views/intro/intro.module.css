@@ -3,10 +3,11 @@
   height: 50vh;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
 }
 
-.container.slideIn {
-  opacity: 1;
-  transform: translateY(0);
+.introText {
+  margin-bottom: 40px;
 }

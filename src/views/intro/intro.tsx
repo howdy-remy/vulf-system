@@ -19,10 +19,15 @@ export const Intro = () => {
 
   return (
     <div className={`${styles.container}`}>
-      <p className={typography.bodyLarge}>
+      <p className={`${typography.bodyLarge} ${styles.introText}`}>
         Vulfpeck has collaborated with at least <br />
         <span className={typography.red}>{peopleCount}</span> people across{" "}
         <span className={typography.red}>{albumCount}</span> albums.
+      </p>
+      <p className={typography.body}>
+        I've included data from bands associated with four Vulfpeck members:
+        <br />
+        Joe Dart, Woody Goss, Theo Katzman, and Jack Stratton.
       </p>
     </div>
   );
