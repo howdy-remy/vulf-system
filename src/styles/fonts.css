@@ -1,9 +1,8 @@
 /* Vulf Sans Regular */
 @font-face {
   font-family: "Vulf Sans";
-  src: url("/fonts/Vulf_Sans-Regular.woff2") format("woff2"),
-    url("/fonts/Vulf_Sans-Regular.woff") format("woff"),
-    url("/fonts/Vulf_Sans-Regular.ttf") format("truetype");
+  src: url("/fonts/Vulf_Sans-Regular.woff2"),
+    url("/fonts/Vulf_Sans-Regular.woff"), url("/fonts/Vulf_Sans-Regular.ttf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,9 +11,8 @@
 /* Vulf Sans Italic */
 @font-face {
   font-family: "Vulf Sans";
-  src: url("/fonts/Vulf_Sans-Italic.woff2") format("woff2"),
-    url("/fonts/Vulf_Sans-Italic.woff") format("woff"),
-    url("/fonts/Vulf_Sans-Italic.ttf") format("truetype");
+  src: url("/fonts/Vulf_Sans-Italic.woff2"), url("/fonts/Vulf_Sans-Italic.woff"),
+    url("/fonts/Vulf_Sans-Italic.ttf");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -23,9 +21,8 @@
 /* Vulf Sans Bold */
 @font-face {
   font-family: "Vulf Sans";
-  src: url("/fonts/Vulf_Sans-Bold.woff2") format("woff2"),
-    url("/fonts/Vulf_Sans-Bold.woff") format("woff"),
-    url("/fonts/Vulf_Sans-Bold.ttf") format("truetype");
+  src: url("/fonts/Vulf_Sans-Bold.woff2"), url("/fonts/Vulf_Sans-Bold.woff"),
+    url("/fonts/Vulf_Sans-Bold.ttf");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -34,9 +31,9 @@
 /* Vulf Sans Bold Italic */
 @font-face {
   font-family: "Vulf Sans";
-  src: url("/fonts/Vulf_Sans-Bold_Italic.woff2") format("woff2"),
-    url("/fonts/Vulf_Sans-Bold_Italic.woff") format("woff"),
-    url("/fonts/Vulf_Sans-Bold_Italic.ttf") format("truetype");
+  src: url("/fonts/Vulf_Sans-Bold_Italic.woff2"),
+    url("/fonts/Vulf_Sans-Bold_Italic.woff"),
+    url("/fonts/Vulf_Sans-Bold_Italic.ttf");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -45,9 +42,8 @@
 /* Vulf Mono Light */
 @font-face {
   font-family: "Vulf Mono";
-  src: url("/fonts/VulfMono-Light.woff2") format("woff2"),
-    url("/fonts/VulfMono-Light.woff") format("woff"),
-    url("/fonts/VulfMono-Light.ttf") format("truetype");
+  src: url("/fonts/VulfMono-Light.woff2"), url("/fonts/VulfMono-Light.woff"),
+    url("/fonts/VulfMono-Light.ttf");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -56,9 +52,8 @@
 /* Vulf Mono Regular */
 @font-face {
   font-family: "Vulf Mono";
-  src: url("/fonts/VulfMono-Regular.woff2") format("woff2"),
-    url("/fonts/VulfMono-Regular.woff") format("woff"),
-    url("/fonts/VulfMono-Regular.ttf") format("truetype");
+  src: url("/fonts/VulfMono-Regular.woff2"), url("/fonts/VulfMono-Regular.woff"),
+    url("/fonts/VulfMono-Regular.ttf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -67,9 +62,8 @@
 /* Vulf Mono Italic */
 @font-face {
   font-family: "Vulf Mono";
-  src: url("/fonts/VulfMono-Italic.woff2") format("woff2"),
-    url("/fonts/VulfMono-Italic.woff") format("woff"),
-    url("/fonts/VulfMono-Italic.ttf") format("truetype");
+  src: url("/fonts/VulfMono-Italic.woff2"), url("/fonts/VulfMono-Italic.woff"),
+    url("/fonts/VulfMono-Italic.ttf");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -78,9 +72,8 @@
 /* Vulf Mono Black */
 @font-face {
   font-family: "Vulf Mono";
-  src: url("/fonts/VulfMono-Black.woff2") format("woff2"),
-    url("/fonts/VulfMono-Black.woff") format("woff"),
-    url("/fonts/VulfMono-Black.ttf") format("truetype");
+  src: url("/fonts/VulfMono-Black.woff2"), url("/fonts/VulfMono-Black.woff"),
+    url("/fonts/VulfMono-Black.ttf");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -89,9 +82,9 @@
 /* Vulf Mono Black Italic */
 @font-face {
   font-family: "Vulf Mono";
-  src: url("/fonts/VulfMono-BlackItalic.woff2") format("woff2"),
-    url("/fonts/VulfMono-BlackItalic.woff") format("woff"),
-    url("/fonts/VulfMono-BlackItalic.ttf") format("truetype");
+  src: url("/fonts/VulfMono-BlackItalic.woff2"),
+    url("/fonts/VulfMono-BlackItalic.woff"),
+    url("/fonts/VulfMono-BlackItalic.ttf");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
