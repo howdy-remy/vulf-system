@@ -14,7 +14,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2011-12-20"),
-    cover: "src/assets/albums/vulfpeck_mit-peck.jpg",
+    cover: "vulfpeck_mit-peck.jpg",
   },
   {
     id: "vollmilch",
@@ -22,7 +22,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2012-12-20"),
-    cover: "src/assets/albums/vulfpeck_vollmilch.jpg",
+    cover: "vulfpeck_vollmilch.jpg",
   },
   {
     id: "my-first-car",
@@ -30,7 +30,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2013-02-27"),
-    cover: "src/assets/albums/vulfpeck_my-first-car.jpg",
+    cover: "vulfpeck_my-first-car.jpg",
   },
   {
     id: "sleepify",
@@ -38,7 +38,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2014-03-14"),
-    cover: "src/assets/albums/vulfpeck_sleepify.jpg",
+    cover: "vulfpeck_sleepify.jpg",
   },
   {
     id: "fugue-state",
@@ -46,7 +46,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2014-08-26"),
-    cover: "src/assets/albums/vulfpeck_fugue-state.jpg",
+    cover: "vulfpeck_fugue-state.jpg",
   },
   {
     id: "thrill-of-the-arts",
@@ -54,7 +54,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2015-10-09"),
-    cover: "src/assets/albums/vulfpeck_thrill-of-the-arts.jpg",
+    cover: "vulfpeck_thrill-of-the-arts.jpg",
   },
   {
     id: "the-beautiful-game",
@@ -62,7 +62,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2016-10-17"),
-    cover: "src/assets/albums/vulfpeck_the-beautiful-game.jpg",
+    cover: "vulfpeck_the-beautiful-game.jpg",
   },
   {
     id: "mr-finish-line",
@@ -70,7 +70,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2017-11-07"),
-    cover: "src/assets/albums/vulfpeck_mr-finish-line.jpg",
+    cover: "vulfpeck_mr-finish-line.jpg",
   },
   {
     id: "hill-climber",
@@ -78,7 +78,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2018-12-07"),
-    cover: "src/assets/albums/vulfpeck_hill-climber.jpg",
+    cover: "vulfpeck_hill-climber.jpg",
   },
   {
     id: "live-at-msg",
@@ -86,7 +86,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2019-12-10"),
-    cover: "src/assets/albums/vulfpeck_live-at-msg.jpg",
+    cover: "vulfpeck_live-at-msg.jpg",
   },
   {
     id: "the-joy-of-music",
@@ -94,7 +94,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2020-10-23"),
-    cover: "src/assets/albums/vulfpeck_the-joy-of-music.jpg",
+    cover: "vulfpeck_the-joy-of-music.jpg",
   },
   {
     id: "schvitz",
@@ -102,7 +102,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2022-12-30"),
-    cover: "src/assets/albums/vulfpeck_schvitz.jpg",
+    cover: "vulfpeck_schvitz.jpg",
   },
   {
     id: "clarity-of-cal",
@@ -110,7 +110,7 @@ export const albums: Album[] = [
     band: "Vulfpeck",
     bandId: "vulfpeck",
     release_date: new Date("2025-03-04"),
-    cover: "src/assets/albums/vulfpeck_clarity-of-cal.jpg",
+    cover: "vulfpeck_clarity-of-cal.jpg",
   },
   // Theo Katzman
   {
@@ -119,7 +119,7 @@ export const albums: Album[] = [
     band: "Theo Katzman",
     bandId: "theo-katzman",
     release_date: new Date("2011-11-15"),
-    cover: "src/assets/albums/theo-katzman_romance-without-finance.jpg",
+    cover: "theo-katzman_romance-without-finance.jpg",
   },
   {
     title: "Heartbreak Hits",
@@ -127,7 +127,7 @@ export const albums: Album[] = [
     band: "Theo Katzman",
     bandId: "theo-katzman",
     release_date: new Date("2017-01-06"),
-    cover: "src/assets/albums/theo-katzman_heartbreak-hits.jpg",
+    cover: "theo-katzman_heartbreak-hits.jpg",
   },
   {
     title: "Modern Johnny Sings: Songs in the Age of Vibe",
@@ -135,7 +135,7 @@ export const albums: Album[] = [
     band: "Theo Katzman",
     bandId: "theo-katzman",
     release_date: new Date("2020-01-10"),
-    cover: "src/assets/albums/theo-katzman_modern-johnny-sings.jpg",
+    cover: "theo-katzman_modern-johnny-sings.jpg",
   },
   {
     title: "Be the Wheel",
@@ -143,7 +143,7 @@ export const albums: Album[] = [
     band: "Theo Katzman",
     bandId: "theo-katzman",
     release_date: new Date("2023-03-10"),
-    cover: "src/assets/albums/theo-katzman_be-the-wheel.jpg",
+    cover: "theo-katzman_be-the-wheel.jpg",
   },
   // The Fearless Flyers
   {
@@ -152,7 +152,7 @@ export const albums: Album[] = [
     band: "The Fearless Flyers",
     bandId: "the-fearless-flyers",
     release_date: new Date("2018-03-23"),
-    cover: "src/assets/albums/the-fearless-flyers_the-fearless-flyers.jpg",
+    cover: "the-fearless-flyers_the-fearless-flyers.jpg",
   },
   {
     title: "Fearless Flyers II",
@@ -160,7 +160,7 @@ export const albums: Album[] = [
     band: "The Fearless Flyers",
     bandId: "the-fearless-flyers",
     release_date: new Date("2019-05-03"),
-    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-ii.jpg",
+    cover: "the-fearless-flyers_fearless-flyers-ii.jpg",
   },
   {
     title: "Tailwinds",
@@ -168,7 +168,7 @@ export const albums: Album[] = [
     band: "The Fearless Flyers",
     bandId: "the-fearless-flyers",
     release_date: new Date("2020-06-19"),
-    cover: "src/assets/albums/the-fearless-flyers_tailwinds.jpg",
+    cover: "the-fearless-flyers_tailwinds.jpg",
   },
   {
     title: "Fearless Flyers III",
@@ -176,7 +176,7 @@ export const albums: Album[] = [
     band: "The Fearless Flyers",
     bandId: "the-fearless-flyers",
     release_date: new Date("2022-03-04"),
-    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-iii.jpg",
+    cover: "the-fearless-flyers_fearless-flyers-iii.jpg",
   },
   {
     title: "Fearless Flyers IV",
@@ -184,7 +184,7 @@ export const albums: Album[] = [
     band: "The Fearless Flyers",
     bandId: "the-fearless-flyers",
     release_date: new Date("2024-02-09"),
-    cover: "src/assets/albums/the-fearless-flyers_fearless-flyers-iv.jpg",
+    cover: "the-fearless-flyers_fearless-flyers-iv.jpg",
   },
   // vulfmon
   {
@@ -193,7 +193,7 @@ export const albums: Album[] = [
     band: "Vulfmon",
     bandId: "vulfmon",
     release_date: new Date("2022-08-11"),
-    cover: "src/assets/albums/vulfmon_here-we-go-jack.jpg",
+    cover: "vulfmon_here-we-go-jack.jpg",
   },
   {
     title: "Vulfnik",
@@ -201,7 +201,7 @@ export const albums: Album[] = [
     band: "Vulfmon",
     bandId: "vulfmon",
     release_date: new Date("2023-06-01"),
-    cover: "src/assets/albums/vulfmon_vulfnik.jpg",
+    cover: "vulfmon_vulfnik.jpg",
   },
   {
     title: "Dot",
@@ -209,7 +209,7 @@ export const albums: Album[] = [
     band: "Vulfmon",
     bandId: "vulfmon",
     release_date: new Date("2024-07-23"),
-    cover: "src/assets/albums/vulfmon_dot.jpg",
+    cover: "vulfmon_dot.jpg",
   },
   {
     title: "Deg",
@@ -217,7 +217,7 @@ export const albums: Album[] = [
     band: "Vulfmon",
     bandId: "vulfmon",
     release_date: new Date("2025-10-20"),
-    cover: "src/assets/albums/vulfmon_deg.jpg",
+    cover: "vulfmon_deg.jpg",
   },
   // Woody and Jeremy
   {
@@ -226,7 +226,7 @@ export const albums: Album[] = [
     band: "Woody and Jeremy",
     bandId: "woody-and-jeremy",
     release_date: new Date("2020-03-13"),
-    cover: "src/assets/albums/woody-and-jeremy_strange-satisfaction.jpg",
+    cover: "woody-and-jeremy_strange-satisfaction.jpg",
   },
   {
     title: "Gravy in My Coffee",
@@ -234,7 +234,7 @@ export const albums: Album[] = [
     band: "Woody and Jeremy",
     bandId: "woody-and-jeremy",
     release_date: new Date("2021-06-04"),
-    cover: "src/assets/albums/woody-and-jeremy_gravy-in-my-coffee.jpg",
+    cover: "woody-and-jeremy_gravy-in-my-coffee.jpg",
   },
   {
     title: "Anyway",
@@ -242,7 +242,7 @@ export const albums: Album[] = [
     band: "May Erlewine & the Woody Goss Band",
     bandId: "may-erlewine-woody-goss",
     release_date: new Date("2020-09-14"),
-    cover: "src/assets/albums/may-erlewine-woody-goss_anyway.jpg",
+    cover: "may-erlewine-woody-goss_anyway.jpg",
   },
 
   // Woody Goss
@@ -252,7 +252,7 @@ export const albums: Album[] = [
     band: "Woody Goss",
     bandId: "woody-goss",
     release_date: new Date("2021-09-24"),
-    cover: "src/assets/albums/woody-goss_rainbow-beach.jpg",
+    cover: "woody-goss_rainbow-beach.jpg",
   },
   {
     title: "High Loon!",
@@ -260,6 +260,6 @@ export const albums: Album[] = [
     band: "Woody Goss",
     bandId: "woody-goss",
     release_date: new Date("2023-04-28"),
-    cover: "src/assets/albums/woody-goss_high-loon.jpg",
+    cover: "woody-goss_high-loon.jpg",
   },
 ];

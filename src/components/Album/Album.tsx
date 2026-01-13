@@ -12,7 +12,11 @@ export const AlbumCard: React.FC<{ album: Album }> = ({ album }) => {
 
   return (
     <div className={styles.card}>
-      <img className={styles.cover} src={album.cover} alt={album.title} />
+      <img
+        className={styles.cover}
+        src={`albums/${album.cover}`}
+        alt={album.title}
+      />
       <h4 className={`${typography.body} ${typography.italic}`}>
         {album.title}
       </h4>

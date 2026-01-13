@@ -17,8 +17,9 @@ export const useTextWidth = (): UseTextWidthReturn => {
 
   const viewportWidth = useViewportWidth();
   const characterWidth = 8.85; // approximate width of a character in pixels
+  const padding = viewportWidth < 600 ? 40 : 80; // adjust padding based on viewport size
   const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - 80) / characterWidth // 80 = padding
+    (viewportWidth - padding) / characterWidth
   );
 
   useEffect(() => {
