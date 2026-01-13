@@ -14,7 +14,7 @@ export const AlbumCard: React.FC<{ album: Album }> = ({ album }) => {
     <div className={styles.card}>
       <img
         className={styles.cover}
-        src={`albums/${album.cover}`}
+        src={`/albums/${album.cover}`}
         alt={album.title}
       />
       <h4 className={`${typography.body} ${typography.italic}`}>
