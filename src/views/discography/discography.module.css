@@ -15,6 +15,7 @@
   display: none;
   gap: 8px;
   margin-bottom: 16px;
+  z-index: 5;
 }
 
 .filterItem {
