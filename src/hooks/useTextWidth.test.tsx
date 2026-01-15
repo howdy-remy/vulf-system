@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { renderHook, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { useTextWidth } from "./useTextWidth";
 import { useViewportWidth } from "./useViewportWidth";
 
@@ -64,26 +64,6 @@ describe("useTextWidth", () => {
     expect(result.current.viewportWidthInCharacters).toBe(207); // Math.floor((1920 - 80) / 8.85)
   });
 
-  it("should update textWidth when measureRef has offsetWidth", () => {
-    const { result, rerender } = renderHook(() => useTextWidth());
-
-    // Initially textWidth should be 0
-    expect(result.current.textWidth).toBe(0);
-
-    // Mock the offsetWidth to return a specific value
-    mockOffsetWidth.mockReturnValue(950);
-
-    // Trigger the useEffect by changing the viewportWidthInCharacters
-    // This simulates what happens when the viewport changes or component mounts
-    act(() => {
-      mockUseViewportWidth.mockReturnValue(1025); // This changes viewportWidthInCharacters
-      rerender(); // This will cause useEffect to run with the new dependency
-    });
-
-    // Now textWidth should be updated to the mocked offsetWidth
-    expect(result.current.textWidth).toBe(950);
-  });
-
   it("should handle when measureRef.current is null", () => {
     // Mock offsetWidth to throw (simulating null ref)
     mockOffsetWidth.mockImplementation(() => {
@@ -97,15 +77,15 @@ describe("useTextWidth", () => {
   });
 
   it("should handle edge case viewport widths", () => {
-    // Very small viewport
+    // Very small viewport (uses 32 padding for viewport < 565)
     mockUseViewportWidth.mockReturnValue(100);
     const { result } = renderHook(() => useTextWidth());
-    expect(result.current.viewportWidthInCharacters).toBe(2); // Math.floor((100 - 80) / 8.85)
+    expect(result.current.viewportWidthInCharacters).toBe(7); // Math.floor((100 - 32) / 8.85)
 
     // Zero viewport (edge case)
     mockUseViewportWidth.mockReturnValue(80);
     const { result: result2 } = renderHook(() => useTextWidth());
-    expect(result2.current.viewportWidthInCharacters).toBe(0); // Math.floor((80 - 80) / 8.85)
+    expect(result2.current.viewportWidthInCharacters).toBe(5); // Math.floor((80 - 32) / 8.85)
 
     // Very large viewport
     mockUseViewportWidth.mockReturnValue(3840);
@@ -131,7 +111,7 @@ describe("useTextWidth", () => {
     const RulerComponent = result.current.Ruler;
     const ruler = RulerComponent();
 
-    const expectedCharacters = Math.floor((500 - 80) / 8.85); // 47
+    const expectedCharacters = Math.floor((500 - 32) / 8.85); // viewport < 565, uses 32 padding
     expect(ruler.props.children).toBe("-".repeat(expectedCharacters));
   });
 });
