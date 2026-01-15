@@ -39,7 +39,7 @@ describe("useTextWidth", () => {
 
     expect(result.current.textWidth).toBe(0); // Initially 0 before measurement
     expect(result.current.viewportWidth).toBe(1024);
-    expect(result.current.viewportWidthInCharacters).toBe(106); // Math.floor((1024 - 80) / 8.85)
+    expect(result.current.viewportWidthInCharacters).toBe(107); // Math.floor((1024 - 80) / 8.8)
     expect(typeof result.current.Ruler).toBe("function");
   });
 
@@ -47,7 +47,7 @@ describe("useTextWidth", () => {
     mockUseViewportWidth.mockReturnValue(1200);
     const { result } = renderHook(() => useTextWidth());
 
-    const expected = Math.floor((1200 - 80) / 8.85);
+    const expected = Math.floor((1200 - 80) / 8.8);
     expect(result.current.viewportWidthInCharacters).toBe(expected);
   });
 
@@ -55,13 +55,13 @@ describe("useTextWidth", () => {
     mockUseViewportWidth.mockReturnValue(768);
     const { result, rerender } = renderHook(() => useTextWidth());
 
-    expect(result.current.viewportWidthInCharacters).toBe(77); // Math.floor((768 - 80) / 8.85)
+    expect(result.current.viewportWidthInCharacters).toBe(78); // Math.floor((768 - 80) / 8.8)
 
     // Change viewport width
     mockUseViewportWidth.mockReturnValue(1920);
     rerender();
 
-    expect(result.current.viewportWidthInCharacters).toBe(207); // Math.floor((1920 - 80) / 8.85)
+    expect(result.current.viewportWidthInCharacters).toBe(209); // Math.floor((1920 - 80) / 8.8)
   });
 
   it("should handle when measureRef.current is null", () => {
@@ -80,21 +80,21 @@ describe("useTextWidth", () => {
     // Very small viewport (uses 32 padding for viewport < 565)
     mockUseViewportWidth.mockReturnValue(100);
     const { result } = renderHook(() => useTextWidth());
-    expect(result.current.viewportWidthInCharacters).toBe(7); // Math.floor((100 - 32) / 8.85)
+    expect(result.current.viewportWidthInCharacters).toBe(7); // Math.floor((100 - 32) / 8.8)
 
     // Zero viewport (edge case)
     mockUseViewportWidth.mockReturnValue(80);
     const { result: result2 } = renderHook(() => useTextWidth());
-    expect(result2.current.viewportWidthInCharacters).toBe(5); // Math.floor((80 - 32) / 8.85)
+    expect(result2.current.viewportWidthInCharacters).toBe(5); // Math.floor((80 - 32) / 8.8)
 
     // Very large viewport
     mockUseViewportWidth.mockReturnValue(3840);
     const { result: result3 } = renderHook(() => useTextWidth());
-    expect(result3.current.viewportWidthInCharacters).toBe(424); // Math.floor((3840 - 80) / 8.85)
+    expect(result3.current.viewportWidthInCharacters).toBe(427); // Math.floor((3840 - 80) / 8.8)
   });
 
   it("should use consistent character width calculation", () => {
-    const characterWidth = 8.85;
+    const characterWidth = 8.8;
     const padding = 80;
 
     mockUseViewportWidth.mockReturnValue(1024);
@@ -111,7 +111,7 @@ describe("useTextWidth", () => {
     const RulerComponent = result.current.Ruler;
     const ruler = RulerComponent();
 
-    const expectedCharacters = Math.floor((500 - 32) / 8.85); // viewport < 565, uses 32 padding
+    const expectedCharacters = Math.floor((500 - 32) / 8.8); // viewport < 565, uses 32 padding
     expect(ruler.props.children).toBe("-".repeat(expectedCharacters));
   });
 });
