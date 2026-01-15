@@ -186,6 +186,18 @@ export const Select = ({
     [isOpen, focusedIndex, flatOptions, value, handleSelect]
   );
 
+  const handleButtonClick = useCallback(() => {
+    if (!isOpen) {
+      setIsOpen(true);
+      // Set focus to currently selected option or first option when opening
+      const selectedIndex = flatOptions.findIndex((opt) => opt.value === value);
+      setFocusedIndex(selectedIndex >= 0 ? selectedIndex : 0);
+    } else {
+      setIsOpen(false);
+      setFocusedIndex(-1);
+    }
+  }, [isOpen, flatOptions, value]);
+
   const selectedOption = flatOptions.find((opt) => opt.value === value);
 
   let optionIndex = 0;
@@ -195,7 +207,7 @@ export const Select = ({
       <button
         ref={buttonRef}
         id={buttonId}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleButtonClick}
         onKeyDown={handleKeyDown}
         className={styles.button}
         aria-haspopup="listbox"
