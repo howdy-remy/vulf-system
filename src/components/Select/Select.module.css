@@ -97,14 +97,16 @@
 .option.focused {
   background: #e0e0e0;
   outline: 2px solid #0b539b;
+  outline-offset: -2px;
 }
 
 .option.selected.focused {
   background: #d0d0d0;
   outline: 2px solid #0b539b;
+  outline-offset: -2px;
 }
 
 .button:focus {
   outline: 2px solid #0b539b;
-  outline-offset: 2px;
+  outline-offset: -2px;
 }

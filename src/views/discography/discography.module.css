@@ -52,7 +52,6 @@ tr:not(:first-child):hover td {
   text-align: left;
   vertical-align: top;
   padding: 0 8px;
-  overflow: hidden;
   font-weight: inherit;
 }
 
