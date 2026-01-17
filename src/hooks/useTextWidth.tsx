@@ -10,53 +10,36 @@ interface UseTextWidthReturn {
   Ruler: () => React.JSX.Element;
 }
 
-// Hook to calculate target width and find how many characters fit that width
+export const PADDING = 80;
+export const CHARACTER_WIDTH = 8.8; // approximate width of a character in pixels
+
+// hook to measure text width and calculate viewport width in characters
 export const useTextWidth = (): UseTextWidthReturn => {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
-  const [viewportWidthInCharacters, setViewportWidthInCharacters] = useState(0);
-  const [textWidth, setTextWidth] = useState(0);
   const measureRef = useRef<HTMLSpanElement>(null);
 
-  const viewportWidth = useViewportWidth();
-  const padding = viewportWidth < 565 ? 32 : 80;
-  const targetWidth = viewportWidth - padding;
-
-  // Wait for fonts to load
+  // wait for fonts to load
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   useEffect(() => {
     document.fonts.ready.then(() => {
       setFontsLoaded(true);
     });
   }, []);
 
-  // Binary search to find how many characters fit in the target width
+  // get with of text in characters
+  const [textWidth, setTextWidth] = useState(0);
+  const viewportWidth = useViewportWidth();
+  const viewportWidthInCharacters = Math.floor(
+    (viewportWidth - PADDING) / CHARACTER_WIDTH
+  );
+
   useEffect(() => {
-    if (!measureRef.current || !fontsLoaded) return;
-
-    let low = 1;
-    let high = 200; // reasonable upper bound
-    let bestFit = 0;
-    let bestWidth = 0;
-
-    while (low <= high) {
-      const mid = Math.floor((low + high) / 2);
-      
-      // Temporarily update the content to measure
-      measureRef.current.textContent = "-".repeat(mid);
+    if (measureRef.current && fontsLoaded) {
       const width = measureRef.current.offsetWidth;
-      
-      if (width <= targetWidth) {
-        bestFit = mid;
-        bestWidth = width;
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
+      setTextWidth(width > 0 ? width : 0);
     }
+  }, [viewportWidthInCharacters, fontsLoaded]);
 
-    setViewportWidthInCharacters(bestFit);
-    setTextWidth(bestWidth);
-  }, [targetWidth, fontsLoaded]);
-
+  // ruler component to measure actual text width
   const Ruler = () => (
     <span
       ref={measureRef}

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+// hook to get the current viewport width with
+// debounced resize handling
+
 export function useViewportWidth() {
   const [width, setWidth] = useState(window.innerWidth);
 
