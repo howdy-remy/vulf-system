@@ -29,7 +29,7 @@ describe("useViewportWidth", () => {
   beforeEach(() => {
     // Use fake timers for debounce testing
     vi.useFakeTimers();
-    
+
     // Reset mocks before each test
     mockAddEventListener.mockClear();
     mockRemoveEventListener.mockClear();
