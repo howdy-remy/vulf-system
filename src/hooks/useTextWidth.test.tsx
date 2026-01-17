@@ -28,6 +28,14 @@ describe("useTextWidth", () => {
       get: mockOffsetWidth,
       configurable: true,
     });
+
+    // Mock document.fonts
+    Object.defineProperty(document, "fonts", {
+      value: {
+        ready: Promise.resolve(),
+      },
+      configurable: true,
+    });
   });
 
   afterEach(() => {
@@ -93,7 +101,9 @@ describe("useTextWidth", () => {
     // Zero viewport
     mockUseViewportWidth.mockReturnValue(0);
     const { result: result2 } = renderHook(() => useTextWidth());
-    expect(result2.current.viewportWidthInCharacters).toBe(0);
+    expect(result2.current.viewportWidthInCharacters).toBe(
+      Math.floor((0 - PADDING) / CHARACTER_WIDTH)
+    );
 
     // Very large viewport
     mockUseViewportWidth.mockReturnValue(3840);

@@ -27,6 +27,9 @@ Object.defineProperty(window, "removeEventListener", {
 
 describe("useViewportWidth", () => {
   beforeEach(() => {
+    // Use fake timers for debounce testing
+    vi.useFakeTimers();
+    
     // Reset mocks before each test
     mockAddEventListener.mockClear();
     mockRemoveEventListener.mockClear();
@@ -36,6 +39,7 @@ describe("useViewportWidth", () => {
 
   afterEach(() => {
     vi.clearAllMocks();
+    vi.useRealTimers();
   });
 
   it("should return the initial window width", () => {
@@ -69,7 +73,7 @@ describe("useViewportWidth", () => {
     expect(mockRemoveEventListener).toHaveBeenCalledTimes(1);
   });
 
-  it("should update width when window is resized", () => {
+  it("should update width when window is resized", async () => {
     const { result } = renderHook(() => useViewportWidth());
 
     // Initial width
@@ -79,38 +83,43 @@ describe("useViewportWidth", () => {
     const resizeHandler = mockAddEventListener.mock.calls[0][1];
 
     // Simulate window resize
-    act(() => {
+    await act(async () => {
       window.innerWidth = 768;
       resizeHandler();
+      // Wait for the debounced timeout
+      vi.advanceTimersByTime(100);
     });
 
     expect(result.current).toBe(768);
   });
 
-  it("should handle multiple resize events", () => {
+  it("should handle multiple resize events", async () => {
     const { result } = renderHook(() => useViewportWidth());
 
     // Get the resize handler function
     const resizeHandler = mockAddEventListener.mock.calls[0][1];
 
     // First resize
-    act(() => {
+    await act(async () => {
       window.innerWidth = 1200;
       resizeHandler();
+      vi.advanceTimersByTime(100);
     });
     expect(result.current).toBe(1200);
 
     // Second resize
-    act(() => {
+    await act(async () => {
       window.innerWidth = 480;
       resizeHandler();
+      vi.advanceTimersByTime(100);
     });
     expect(result.current).toBe(480);
 
     // Third resize
-    act(() => {
+    await act(async () => {
       window.innerWidth = 1920;
       resizeHandler();
+      vi.advanceTimersByTime(100);
     });
     expect(result.current).toBe(1920);
   });
@@ -124,21 +133,23 @@ describe("useViewportWidth", () => {
     expect(result.current).toBe(375);
   });
 
-  it("should handle edge case widths", () => {
+  it("should handle edge case widths", async () => {
     const { result } = renderHook(() => useViewportWidth());
     const resizeHandler = mockAddEventListener.mock.calls[0][1];
 
     // Test with very small width
-    act(() => {
+    await act(async () => {
       window.innerWidth = 0;
       resizeHandler();
+      vi.advanceTimersByTime(100);
     });
     expect(result.current).toBe(0);
 
     // Test with very large width
-    act(() => {
+    await act(async () => {
       window.innerWidth = 9999;
       resizeHandler();
+      vi.advanceTimersByTime(100);
     });
     expect(result.current).toBe(9999);
   });

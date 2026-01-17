@@ -44,7 +44,7 @@ describe("Intro Component", () => {
 
     // Check if the main intro text is rendered
     expect(
-      screen.getByText(/Vulfpeck has collaborated with at least/)
+      screen.getByText(/Vulpeck members have collaborated with at least/)
     ).toBeDefined();
 
     // Check if the animated counts are displayed
@@ -103,7 +103,7 @@ describe("Intro Component", () => {
 
     // Check for paragraphs
     const paragraphs = container.querySelectorAll("p");
-    expect(paragraphs).toHaveLength(2);
+    expect(paragraphs).toHaveLength(3); // intro text, member info, contact info
   });
 
   it("handles zero counts gracefully", () => {
