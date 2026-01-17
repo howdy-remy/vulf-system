@@ -4,6 +4,7 @@ import { useViewportWidth } from "../../hooks/useViewportWidth";
 
 import typography from "../../styles/typography.module.css";
 import styles from "./Header.module.css";
+import { CHARACTER_WIDTH, PADDING } from "../../hooks/useTextWidth";
 
 // -----------------------------------------------------------------------------
 // the general concept of the header is that it is entirely made of text
@@ -139,9 +140,9 @@ export const Header = () => {
 
   // viewport calculations
   const viewportWidth = useViewportWidth();
-  const characterWidth = 8.85; // approximate width of a character in pixels
+  const characterWidth = CHARACTER_WIDTH; // approximate width of a character in pixels
   const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - 80) / characterWidth - 1 // 80 = padding
+    (viewportWidth - PADDING) / characterWidth - 1
   );
 
   const magicNumber = 5; // three hyphens and two spaces
