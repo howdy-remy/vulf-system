@@ -10,37 +10,52 @@ interface UseTextWidthReturn {
   Ruler: () => React.JSX.Element;
 }
 
-// hook to measure text width and calculate viewport width in characters
+// Hook to calculate target width and find how many characters fit that width
 export const useTextWidth = (): UseTextWidthReturn => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-
+  const [viewportWidthInCharacters, setViewportWidthInCharacters] = useState(0);
   const [textWidth, setTextWidth] = useState(0);
-  const [calibratedCharWidth, setCalibratedCharWidth] = useState(8.8);
   const measureRef = useRef<HTMLSpanElement>(null);
 
   const viewportWidth = useViewportWidth();
-  const padding = viewportWidth < 565 ? 16 : 80; // adjust padding based on viewport size
-  const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - padding) / calibratedCharWidth
-  );
+  const padding = viewportWidth < 565 ? 32 : 80;
+  const targetWidth = viewportWidth - padding;
 
-  // wait for fonts to load
+  // Wait for fonts to load
   useEffect(() => {
     document.fonts.ready.then(() => {
       setFontsLoaded(true);
     });
   }, []);
 
+  // Binary search to find how many characters fit in the target width
   useEffect(() => {
-    if (measureRef.current && fontsLoaded && viewportWidthInCharacters > 0) {
-      const actualWidth = measureRef.current.offsetWidth;
-      setTextWidth(actualWidth);
+    if (!measureRef.current || !fontsLoaded) return;
 
-      // calibrate character width based on actual measurement
-      const actualCharWidth = actualWidth / viewportWidthInCharacters;
-      setCalibratedCharWidth(actualCharWidth);
+    let low = 1;
+    let high = 200; // reasonable upper bound
+    let bestFit = 0;
+    let bestWidth = 0;
+
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      
+      // Temporarily update the content to measure
+      measureRef.current.textContent = "-".repeat(mid);
+      const width = measureRef.current.offsetWidth;
+      
+      if (width <= targetWidth) {
+        bestFit = mid;
+        bestWidth = width;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
     }
-  }, [viewportWidthInCharacters, fontsLoaded]);
+
+    setViewportWidthInCharacters(bestFit);
+    setTextWidth(bestWidth);
+  }, [targetWidth, fontsLoaded]);
 
   const Ruler = () => (
     <span

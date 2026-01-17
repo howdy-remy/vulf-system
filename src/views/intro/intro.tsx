@@ -20,7 +20,7 @@ export const Intro = () => {
   return (
     <div className={`${styles.container}`}>
       <p className={`${typography.bodyLarge} ${styles.introText}`}>
-        Vulfpeck has collaborated with at least <br />
+        Vulpeck members have collaborated with at least{" "}
         <span className={typography.red}>{peopleCount}</span> people across{" "}
         <span className={typography.red}>{albumCount}</span> albums.
       </p>
@@ -28,6 +28,18 @@ export const Intro = () => {
         I've included data from bands associated with four Vulfpeck members:
         <br />
         Joe Dart, Woody Goss, Theo Katzman, and Jack Stratton.
+      </p>
+      <br />
+
+      <p className={typography.body}>
+        Am I missing something? Feel free to{" "}
+        <a
+          className={typography.red}
+          href="mailto:howdyremy@gmail.com?subject=vulf system"
+        >
+          email me
+        </a>{" "}
+        with data to add!
       </p>
     </div>
   );
