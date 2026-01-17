@@ -145,6 +145,15 @@ export const albums: Album[] = [
     release_date: new Date("2023-03-10"),
     cover: "theo-katzman_be-the-wheel.jpg",
   },
+  {
+    title: "Live from the Other Side",
+    id: "live-from-the-other-side",
+    band: "Theo Katzman",
+    bandId: "theo-katzman",
+    release_date: new Date("2024-09-13"),
+    cover: "theo-katzman_live-from-the-other-side.jpg",
+  },
+
   // The Fearless Flyers
   {
     title: "The Fearless Flyers",

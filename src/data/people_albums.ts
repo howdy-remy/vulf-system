@@ -201,6 +201,14 @@ export const peopleAlbums: PersonAlbum[] = [
   { personId: "jordan-rose", albumId: "be-the-wheel" },
   { personId: "dave-mackay", albumId: "be-the-wheel" },
 
+  // theo_katzman_live-from-the-other-side
+  { personId: "theo-katzman", albumId: "live-from-the-other-side" },
+  { personId: "joe-dart", albumId: "live-from-the-other-side" },
+  { personId: "jordan-rose", albumId: "live-from-the-other-side" },
+  { personId: "dave-mackay", albumId: "live-from-the-other-side" },
+  { personId: "packy-lundholm", albumId: "live-from-the-other-side" },
+  { personId: "may-erlewine", albumId: "live-from-the-other-side" },
+
   // the-fearless-flyers_the-fearless-flyers
   { personId: "cory-wong", albumId: "the-fearless-flyers" },
   { personId: "mark-lettieri", albumId: "the-fearless-flyers" },
