@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# Vulf System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fan site cataloging the many talented musicians Vulfpeck has worked with across their discography. The site maps which people have collaborated on which albums, making it easy to explore the connections in Vulfpeck's universe.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.x-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+![Vite](https://img.shields.io/badge/Vite-7.x-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Dynamic Discography Display** - Browse through the complete collection of albums from Vulfpeck and related bands in release order
+- **Collaboration Information** - See which people collaborated on which albums, represented in a semantic table
+- **Responsive Design** - Adaptive layout that works seamlessly across desktop and mobile devices
+- **Character-Based Header** - Unique text-based header design inspired by the design of [vulfpeck.com](https://www.vulfpeck.com/) that adapts to viewport width
+- **Interactive Filtering** - Filter albums by band and person using custom, accessible select components
+- **Smooth Animations** - Count animations and scroll-based interactions for enhanced user experience
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/ # Reusable UI components
+├── data/       # Static data for albums, people, and relationships
+├── hooks/      # Custom React hooks
+├── views/      # Page-level components
+└── styles/     # Global styles and design tokens
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v22 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/howdy-remy/vulf-system.git
+   cd vulf-system
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## Available Scripts
+
+| Command                 | Description                              |
+| ----------------------- | ---------------------------------------- |
+| `npm run dev`           | Start development server with hot reload |
+| `npm run build`         | Build optimized production bundle        |
+| `npm run preview`       | Preview production build locally         |
+| `npm run lint`          | Run ESLint for code quality checks       |
+| `npm run test`          | Run unit tests with Vitest               |
+| `npm run test:coverage` | Generate test coverage report            |
+
+## Data Structure
+
+The application includes comprehensive data about:
+
+- `albums`: discography with release dates, cover art, and band information
+- `people`: people who have performed on albums
+- `people_albums`: the relationship representing when a person has been on a given album.
+
+All data is statically typed with TypeScript interfaces for type safety.
+
+## Testing
+
+The project includes comprehensive test coverage with:
+
+- Unit tests for components and hooks
+- Integration tests for complex interactions
+- Coverage reporting with Vitest
+
+Run tests with:
+
+```bash
+npm run test
 ```
