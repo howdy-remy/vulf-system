@@ -141,16 +141,6 @@ export const Discography = () => {
       <h2 className={typography.h2}>discography</h2>
       <div className={styles.filters}>
         <div className={styles.filterItem}>
-          <h3 className={typography.h3}>Albums</h3>
-          <p className={typography.body}>filter by</p>
-          <Select
-            options={options}
-            value={selectedValue}
-            onChange={setSelectedValue}
-            placeholder="vulfpeck"
-          />
-        </div>
-        <div className={styles.filterItem}>
           <h3 className={typography.h3}>Person</h3>
           <p className={typography.body}>order</p>
           <Select
@@ -158,6 +148,17 @@ export const Discography = () => {
             value={sortPeopleBy}
             onChange={setSortPeopleBy}
             placeholder="introduced"
+          />
+        </div>
+
+        <div className={styles.filterItem}>
+          <h3 className={typography.h3}>Albums</h3>
+          <p className={typography.body}>filter by</p>
+          <Select
+            options={options}
+            value={selectedValue}
+            onChange={setSelectedValue}
+            placeholder="vulfpeck"
           />
         </div>
       </div>
