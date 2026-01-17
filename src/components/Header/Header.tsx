@@ -178,8 +178,7 @@ export const Header = () => {
   return (
     <>
       <div ref={sentinelRef} style={{ height: "1px" }} />
-      {viewportWidthInCharacters < minTitleLength &&
-      viewportWidthInCharacters > 0 ? (
+      {viewportWidthInCharacters < minTitleLength ? (
         <MicroHeader viewportWidthInCharacters={viewportWidthInCharacters} />
       ) : isScrolled && viewportWidthInCharacters > minMiniTitleLength ? (
         <MiniHeader
