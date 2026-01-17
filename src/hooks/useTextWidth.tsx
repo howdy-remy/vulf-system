@@ -10,24 +10,37 @@ interface UseTextWidthReturn {
   Ruler: () => React.JSX.Element;
 }
 
-// Hook to measure text width and calculate viewport width in characters
+// hook to measure text width and calculate viewport width in characters
 export const useTextWidth = (): UseTextWidthReturn => {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
   const [textWidth, setTextWidth] = useState(0);
+  const [calibratedCharWidth, setCalibratedCharWidth] = useState(8.8);
   const measureRef = useRef<HTMLSpanElement>(null);
 
   const viewportWidth = useViewportWidth();
-  const characterWidth = 8.8; // approximate width of a character in pixels
-  const padding = viewportWidth < 565 ? 32 : 80; // adjust padding based on viewport size
+  const padding = viewportWidth < 565 ? 16 : 80; // adjust padding based on viewport size
   const viewportWidthInCharacters = Math.floor(
-    (viewportWidth - padding) / characterWidth
+    (viewportWidth - padding) / calibratedCharWidth
   );
 
+  // wait for fonts to load
   useEffect(() => {
-    if (measureRef.current) {
-      const width = measureRef.current.offsetWidth;
-      setTextWidth(width);
+    document.fonts.ready.then(() => {
+      setFontsLoaded(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (measureRef.current && fontsLoaded && viewportWidthInCharacters > 0) {
+      const actualWidth = measureRef.current.offsetWidth;
+      setTextWidth(actualWidth);
+
+      // calibrate character width based on actual measurement
+      const actualCharWidth = actualWidth / viewportWidthInCharacters;
+      setCalibratedCharWidth(actualCharWidth);
     }
-  }, [viewportWidthInCharacters]);
+  }, [viewportWidthInCharacters, fontsLoaded]);
 
   const Ruler = () => (
     <span
