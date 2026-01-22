@@ -131,9 +131,9 @@ describe("Discography Component", () => {
       await user.click(albumFilterButton);
 
       // Look for band options in dropdown
-      const vulfpackOption = screen.queryByText("Vulfpeck");
-      if (vulfpackOption) {
-        await user.click(vulfpackOption);
+      const vulfpeckOption = screen.queryByText("Vulfpeck");
+      if (vulfpeckOption) {
+        await user.click(vulfpeckOption);
       }
     }
   });

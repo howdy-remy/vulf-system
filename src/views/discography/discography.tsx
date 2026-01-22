@@ -9,10 +9,12 @@ import { Select, type SelectItem } from "../../components/Select/Select";
 
 import typography from "../../styles/typography.module.css";
 import styles from "./discography.module.css";
-import { useTextWidth } from "../../hooks/useTextWidth";
+import { CHARACTER_WIDTH, useTextWidth } from "../../hooks/useTextWidth";
 
 export const Discography = () => {
   // scroll handling -----------------------------------------------------------
+  // don't allow scrolling within the table unless the user has scrolled to the bottom
+  // this prevents awkward scroll behavior when trying to scroll the page vs the table
   const [allowInternalScroll, setAllowInternalScroll] = useState(false);
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export const Discography = () => {
   );
 
   // filter people -------------------------------------------------------------
-  // (only people who are in the filtered albums)
+  // only include people who are in the filtered albums
   const filteredPeopleAlbums = peopleAlbums.filter((pa) =>
     sortedAlbums.find((album) => album.id === pa.albumId)
   );
@@ -131,8 +133,9 @@ export const Discography = () => {
 
   // = border length -----------------------------------------------------------
   const { viewportWidthInCharacters } = useTextWidth();
+  const approxWidthOfAlbum = 175; // px
   const borderLength = Math.max(
-    ((sortedAlbums.length + 2) * 175) / 8.85,
+    ((sortedAlbums.length + 2) * approxWidthOfAlbum) / CHARACTER_WIDTH,
     viewportWidthInCharacters
   );
 
