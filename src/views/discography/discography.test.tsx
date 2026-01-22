@@ -13,6 +13,7 @@ vi.mock("../../hooks/useTextWidth", () => ({
   useTextWidth: vi.fn(() => ({
     viewportWidthInCharacters: 100,
   })),
+  CHARACTER_WIDTH: 8.8,
 }));
 
 // Mock the data modules
@@ -123,7 +124,7 @@ describe("Discography Component", () => {
     // Find and click the album filter dropdown
     const albumFilterButtons = screen.getAllByRole("button");
     const albumFilterButton = albumFilterButtons.find((button) =>
-      button.textContent?.includes("all")
+      button.textContent?.includes("all"),
     );
 
     expect(albumFilterButton).toBeDefined();
@@ -131,9 +132,9 @@ describe("Discography Component", () => {
       await user.click(albumFilterButton);
 
       // Look for band options in dropdown
-      const vulfpackOption = screen.queryByText("Vulfpeck");
-      if (vulfpackOption) {
-        await user.click(vulfpackOption);
+      const vulfpeckOption = screen.queryByText("Vulfpeck");
+      if (vulfpeckOption) {
+        await user.click(vulfpeckOption);
       }
     }
   });
@@ -145,7 +146,7 @@ describe("Discography Component", () => {
     // Find person sort dropdown
     const sortButtons = screen.getAllByRole("button");
     const personSortButton = sortButtons.find((button) =>
-      button.textContent?.includes("by frequency")
+      button.textContent?.includes("by frequency"),
     );
 
     if (personSortButton) {
@@ -221,7 +222,7 @@ describe("Discography Component", () => {
     // We can't directly test the internal state, but we can test the UI behavior
     const filterButtons = screen.getAllByRole("button");
     const albumFilterButton = filterButtons.find((button) =>
-      button.textContent?.includes("all")
+      button.textContent?.includes("all"),
     );
     expect(albumFilterButton).toBeDefined();
   });

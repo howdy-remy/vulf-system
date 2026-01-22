@@ -44,7 +44,7 @@ describe("Intro Component", () => {
 
     // Check if the main intro text is rendered
     expect(
-      screen.getByText(/Vulpeck members have collaborated with at least/)
+      screen.getByText(/Vulfpeck members have collaborated with at least/),
     ).toBeDefined();
 
     // Check if the animated counts are displayed
@@ -60,12 +60,14 @@ describe("Intro Component", () => {
 
     expect(
       screen.getByText(
-        /I've included data from bands associated with four Vulfpeck members:/
-      )
+        /I've included data from bands associated with four Vulfpeck members:/,
+      ),
     ).toBeDefined();
 
     expect(
-      screen.getByText(/Joe Dart, Woody Goss, Theo Katzman, and Jack Stratton./)
+      screen.getByText(
+        /Joe Dart, Woody Goss, Theo Katzman, and Jack Stratton./,
+      ),
     ).toBeDefined();
   });
 

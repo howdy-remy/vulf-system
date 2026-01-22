@@ -20,7 +20,7 @@ export const Intro = () => {
   return (
     <div className={`${styles.container}`}>
       <p className={`${typography.bodyLarge} ${styles.introText}`}>
-        Vulpeck members have collaborated with at least{" "}
+        Vulfpeck members have collaborated with at least{" "}
         <span className={typography.red}>{peopleCount}</span> people across{" "}
         <span className={typography.red}>{albumCount}</span> albums.
       </p>
